@@ -20,6 +20,7 @@ public class CaixaDeluz : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 GameController.instance.task = 4;
+                print("task " + GameController.instance.task);
                 col.enabled = false;
             }
         }

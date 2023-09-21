@@ -35,8 +35,16 @@ public class Luz : MonoBehaviour
         if(lightout == true)
         {
             luz.intensity = 0;
-            cima.SetActive(false);
-            baixo.SetActive(true);
+            if (lights == true)
+            {
+                cima.SetActive(true);
+                baixo.SetActive(false);
+            }
+            else
+            {
+                cima.SetActive(false);
+                baixo.SetActive(true);
+            }
         }
         else
         {
@@ -45,7 +53,6 @@ public class Luz : MonoBehaviour
                 luz.intensity = 6.55f;
                 cima.SetActive(true);
                 baixo.SetActive(false);
-                GameController.instance.task = 2;
             }
             else
             {

@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     {
         instance = this;
         task = 1;
+        print("task " + task);
     }
 
 

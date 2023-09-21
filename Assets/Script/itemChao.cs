@@ -20,11 +20,12 @@ public class itemChao : MonoBehaviour
 
     void Update()
     {
-        if(podecolocar == true)
+        if(podecolocar == true && Input.GetKeyDown(KeyCode.E))
         {
             col.enabled = true;
             mesh.enabled = true;
             GameController.instance.task = 3;
+            print("task " + GameController.instance.task);
             Destroy(highlight);
             Destroy(maleta);
         }
