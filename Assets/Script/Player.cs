@@ -4,44 +4,60 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public GameObject cam1;
-    public GameObject cam2;
+    CharacterController controller;
+    Vector3 forward;
+    Vector3 strafe;
+    Vector3 vertical;
 
-    private bool trocarCam;
+    [Header("MoviConf")]
+    public float speed;
+    float forwardSpeed = 5f;
+    float strafeSpeed = 5f;
+
+    float gravity;
+    float jumpSpeed;
+    float maxJumpHeight = 2f;
+    float timetoMaxHeight = 0.5f;
 
     void Start()
     {
-        
+        controller = GetComponent<CharacterController>();
+
+        gravity = (-2 * maxJumpHeight) / (timetoMaxHeight * timetoMaxHeight);
+        jumpSpeed = (2 * maxJumpHeight) / timetoMaxHeight;
     }
 
 
     void Update()
     {
-        TrocarCamera();
+        Move();
     }
 
-    void TrocarCamera()
+    void Move()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        float forwardInput = Input.GetAxisRaw("Vertical");
+        float strafeInput = Input.GetAxisRaw("Horizontal");
+
+        forward = forwardInput * forwardSpeed * transform.forward;
+        strafe = strafeInput * strafeSpeed * transform.right;
+
+        vertical += gravity * Time.deltaTime * Vector3.up;
+        if(controller.isGrounded)
         {
-            if(trocarCam == false)
-            {
-                trocarCam = true;
-            }
-            else
-            {
-                trocarCam = false;
-            }
+            vertical = Vector3.down;
         }
-        if(trocarCam == false)
+
+        if(Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
         {
-            cam1.SetActive(true);
-            cam2.SetActive(false);
+            vertical = jumpSpeed * Vector3.up;
         }
-        else
+        if(vertical.y > 0 && (controller.collisionFlags & CollisionFlags.Above) != 0)
         {
-            cam1.SetActive(false);
-            cam2.SetActive(true);
+            vertical = Vector3.zero;
         }
+
+        Vector3 finalVelocity = forward + strafe + vertical;
+
+        controller.Move(finalVelocity * Time.deltaTime);
     }
 }
