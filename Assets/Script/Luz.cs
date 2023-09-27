@@ -7,15 +7,14 @@ public class Luz : MonoBehaviour
     public Light luz;
     bool lights;
     bool podeApertar;
+    float intensidadeOriginal;
 
     public GameObject cima;
     public GameObject baixo;
 
-    public static bool lightout = false;
-
     void Start()
     {
-        
+        intensidadeOriginal = luz.intensity;
     }
 
 
@@ -32,7 +31,7 @@ public class Luz : MonoBehaviour
                 lights = true;
             }
         }
-        if(lightout == true)
+        if(CaixaDeluz.lightout == true)
         {
             luz.intensity = 0;
             if (lights == true)
@@ -50,7 +49,7 @@ public class Luz : MonoBehaviour
         {
             if (lights == true)
             {
-                luz.intensity = 6.55f;
+                luz.intensity = intensidadeOriginal;
                 cima.SetActive(true);
                 baixo.SetActive(false);
             }

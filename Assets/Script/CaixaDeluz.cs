@@ -6,10 +6,14 @@ public class CaixaDeluz : MonoBehaviour
 {
     bool podeUsar = false;
     public Collider col;
+    public GameObject Cima;
+    public GameObject Baixo;
+
+    public static bool lightout = false;
 
     void Start()
     {
-        
+
     }
 
 
@@ -19,10 +23,25 @@ public class CaixaDeluz : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                GameController.instance.task = 4;
-                print("task " + GameController.instance.task);
-                col.enabled = false;
+                if(lightout == true)
+                {
+                    lightout = false;
+                }
+                else if (lightout == false)
+                {
+                    lightout = true;
+                }
             }
+        }
+        if (lightout == true)
+        {
+            Cima.SetActive(false);
+            Baixo.SetActive(true);
+        }
+        else if (lightout == false)
+        {
+            Cima.SetActive(true);
+            Baixo.SetActive(false);
         }
     }
 
