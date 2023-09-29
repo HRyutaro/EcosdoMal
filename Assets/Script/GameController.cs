@@ -41,5 +41,9 @@ public class GameController : MonoBehaviour
         {
             TextTela.text = tarefas[1];
         }
+        else if (task == 3)
+        {
+            TextTela.text = tarefas[2];
+        }
     }
 }

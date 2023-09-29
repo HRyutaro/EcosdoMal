@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class task : MonoBehaviour
 {
-    bool podeApertar;
+    bool entrou;
 
     void Start()
     {
@@ -14,10 +14,9 @@ public class task : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (podeApertar == true && Input.GetKeyDown(KeyCode.E))
+        if (entrou == true)
         {
             GameController.instance.task = 2;
-            print("task " + GameController.instance.task);
             Destroy(gameObject);
         }
     }
@@ -26,7 +25,7 @@ public class task : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            podeApertar = true;
+            entrou = true;
         }
     }
 
@@ -34,7 +33,7 @@ public class task : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            podeApertar = false;
+            entrou = false;
         }
     }
 }

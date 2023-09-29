@@ -5,9 +5,7 @@ using UnityEngine;
 public class CamConfig : MonoBehaviour
 {
     public Transform characterBody;
-    public Transform characterBody2;
     public Transform characterHead;
-    public Transform characterHead2;
 
     public float sensitivityX = 0.5f;
     public float sensitivityY = 0.5f;
@@ -23,8 +21,7 @@ public class CamConfig : MonoBehaviour
 
     public float smoothCoefx = 0.005f;
     public float smoothCoefy = 0.005f;
-
-    public static bool trocarCam = true;
+    public float range = 5;
 
     void Start()
     {
@@ -33,19 +30,14 @@ public class CamConfig : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if(trocarCam == true)
-        {
-            transform.position = characterHead.position;
-        }
-        else if(trocarCam == false)
-        {
-            transform.position = characterHead2.position;
-        }
+         transform.position = characterHead.position;
     }
     // Update is called once per frame
     void Update()
     {
         ControleCam();
+        look();
+
     }
     void ControleCam()
     {
@@ -61,9 +53,22 @@ public class CamConfig : MonoBehaviour
         rotationY = Mathf.Clamp(rotationY, angleYmin, angleYmax);
 
         characterBody.localEulerAngles = new Vector3(0, rotationX, 0);
-        characterBody2.localEulerAngles = new Vector3(0, rotationX, 0);
         
         transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
     }
+    void look()
+    {
+        Vector3 direction = Vector3.forward;
+        Ray theRay = new Ray(transform.position, transform.TransformDirection(direction * range));
+        Debug.DrawRay(transform.position, transform.TransformDirection(direction * range),Color.red);
 
+        if(Physics.Raycast(theRay, out RaycastHit hit, range))
+        {
+            if(hit.collider.tag == "fosforo")
+            {
+                print("colidiu");
+            }
+        }
+
+    }
 }
