@@ -12,23 +12,25 @@ public class GameController : MonoBehaviour
 
     [Header("Missões")]
     public Text TextTela;
+    public Text TextTelaInfo;
     public string[] tarefas;
 
     public int task;
-    public 
+    public bool isPause;
 
     void Start()
     {
         instance = this;
         task = 1;
         print("task " + task);
-        
+        //TextTelaInfo.enabled = false;
     }
 
 
     void Update()
     {
         Task();
+        Pause();
     }
 
     void Task()
@@ -45,5 +47,32 @@ public class GameController : MonoBehaviour
         {
             TextTela.text = tarefas[2];
         }
+        else if (task == 4)
+        {
+            TextTela.text = tarefas[3];
+        }
+    }
+
+    void Pause()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(isPause == false)
+            {
+                Time.timeScale = 0;
+                isPause = true;
+            }
+            else
+            {
+                isPause = false;
+                Time.timeScale = 1;
+            }
+
+        }
+    }
+
+    public void ShowInformacao(string x)
+    {
+        TextTelaInfo.text = x;
     }
 }

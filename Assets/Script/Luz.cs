@@ -6,7 +6,7 @@ public class Luz : MonoBehaviour
 {
     public Light luz;
     bool lights;
-    bool podeApertar;
+    public bool podeApertar;
     float intensidadeOriginal;
 
     public GameObject cima;
@@ -20,17 +20,6 @@ public class Luz : MonoBehaviour
 
     void Update()
     {
-        if(podeApertar == true && Input.GetKeyDown(KeyCode.E))
-        {
-            if (lights == true)
-            {
-                lights = false;
-            }
-            else
-            {
-                lights = true;
-            }
-        }
         if(CaixaDeluz.lightout == true)
         {
             luz.intensity = 0;
@@ -63,19 +52,17 @@ public class Luz : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void LigaDesliga()
     {
-        if (other.gameObject.tag == "Player")
+        if (lights == true)
         {
-            podeApertar = true;
+            lights = false;
+        }
+        else
+        {
+            lights = true;
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            podeApertar = false;
-        }
-    }
+
 }

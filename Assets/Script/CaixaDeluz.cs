@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CaixaDeluz : MonoBehaviour
 {
-    bool podeUsar = false;
+    public static bool podeUsar = false;
     public Collider col;
     public GameObject Cima;
     public GameObject Baixo;
@@ -19,20 +19,6 @@ public class CaixaDeluz : MonoBehaviour
 
     void Update()
     {
-        if (podeUsar == true)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                if(lightout == true)
-                {
-                    lightout = false;
-                }
-                else if (lightout == false)
-                {
-                    lightout = true;
-                }
-            }
-        }
         if (lightout == true)
         {
             Cima.SetActive(false);
@@ -45,25 +31,4 @@ public class CaixaDeluz : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (GameController.instance.whiteCam == false)
-        {
-            if (other.CompareTag("Player"))
-            {
-                podeUsar = true;
-            }
-        }
-
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (GameController.instance.whiteCam == false)
-        {
-            if (other.CompareTag("Player"))
-            {
-                podeUsar = false;
-            }
-        }
-    }
 }

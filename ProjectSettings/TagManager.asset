@@ -5,14 +5,20 @@ TagManager:
   serializedVersion: 2
   tags:
   - Reticula
+  - fosforo
+  - carta1
+  - Luz
+  - Luz2
+  - alavanca
+  - Cama
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ignoreLight
   - Water
   - UI
-  - 
+  - transitions
   - 
   - 
   - 

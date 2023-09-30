@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CamConfig : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class CamConfig : MonoBehaviour
     public float smoothCoefy = 0.005f;
     public float range = 5;
 
+    OutlineObject outlineObject;
+    Luz luz;
+    Luz2 luz2;
+
     void Start()
     {
         Cursor.visible = false;
@@ -35,9 +40,18 @@ public class CamConfig : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ControleCam();
-        look();
-
+        if(GameController.instance.isPause == false)
+        {
+            ControleCam();
+            look();
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
     void ControleCam()
     {
@@ -64,10 +78,81 @@ public class CamConfig : MonoBehaviour
 
         if(Physics.Raycast(theRay, out RaycastHit hit, range))
         {
-            if(hit.collider.tag == "fosforo")
+            if(outlineObject != null)
             {
-                print("colidiu");
+                if(outlineObject.transform != hit.transform)
+                {
+                    outlineObject.Deselect();
+                }
             }
+
+            outlineObject = hit.transform.GetComponent<OutlineObject>();
+            if(outlineObject != null)
+            {
+                outlineObject.Select();
+                Debug.Log(outlineObject.name);
+                if(outlineObject.CompareTag("fosforo"))
+                {
+                    if(Input.GetKeyDown(KeyCode.E))
+                    {
+                        Player.bateriaAtual += 10;
+                        Destroy(outlineObject.gameObject);
+                    }
+                }
+                else if (outlineObject.CompareTag("carta1"))
+                {
+                    Carta1.podePegar = true;
+                }
+                else if (outlineObject.CompareTag("Luz"))
+                {
+                    luz = hit.transform.GetComponent<Luz>();
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        luz.LigaDesliga();
+                    }
+                }
+                else if (outlineObject.CompareTag("Luz2"))
+                {
+                    luz2 = hit.transform.GetComponent<Luz2>();
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        luz2.LigaDesliga();
+                    }
+                }
+                else if(outlineObject.CompareTag("Cama"))
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        SceneManager.LoadScene("Dia2");
+                    }
+                }
+                else if (outlineObject.CompareTag("alavanca"))
+                {
+                    if(Input.GetKeyDown(KeyCode.E))
+                    {
+                        if(CaixaDeluz.lightout == true)
+                        {
+                            CaixaDeluz.lightout = false;
+                        }
+                        else
+                        {
+                            CaixaDeluz.lightout = true;
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (outlineObject != null)
+            {
+                outlineObject.Deselect();
+                if (outlineObject.CompareTag("carta1"))
+                {
+                    Carta1.podePegar = false;
+                }
+            }
+            outlineObject = null;
         }
 
     }

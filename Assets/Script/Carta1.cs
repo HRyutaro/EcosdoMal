@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Carta1 : MonoBehaviour
 {
-    bool podePegar;
+    public static bool podePegar;
     bool pegou = false;
 
     public GameObject Carta1Tela;
@@ -37,13 +37,6 @@ public class Carta1 : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            podePegar = true;
-        }
-    }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
