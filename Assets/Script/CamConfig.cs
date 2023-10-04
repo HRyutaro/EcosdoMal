@@ -27,6 +27,7 @@ public class CamConfig : MonoBehaviour
     OutlineObject outlineObject;
     Luz luz;
     Luz2 luz2;
+    porta porta;
 
     void Start()
     {
@@ -138,6 +139,14 @@ public class CamConfig : MonoBehaviour
                         {
                             CaixaDeluz.lightout = true;
                         }
+                    }
+                }
+                else if (outlineObject.CompareTag("Porta"))
+                {
+                    porta = hit.transform.GetComponent<porta>();
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        porta.Animacao();
                     }
                 }
             }
