@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
         instance = this;
         task = 1;
         print("task " + task);
-        //TextTelaInfo.enabled = false;
+        TextTelaInfo.enabled = false;
     }
 
 
@@ -74,5 +74,15 @@ public class GameController : MonoBehaviour
     public void ShowInformacao(string x)
     {
         TextTelaInfo.text = x;
+        StartCoroutine(habilitarLegenda());
     }
+
+    IEnumerator habilitarLegenda()
+    {
+        TextTelaInfo.enabled = true;
+        yield return new WaitForSeconds(3);
+        TextTelaInfo.enabled = false;
+        TextTelaInfo.text = "";
+    }
+
 }

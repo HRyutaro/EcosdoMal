@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public Animator anim;
     public float forwardSpeed = 5f;
     public float strafeSpeed = 5f;
+    public static bool parado;
 
     public float gravity;
     float jumpSpeed;
@@ -27,6 +28,9 @@ public class Player : MonoBehaviour
     public static float bateriaAtual;
     public Slider imagemBateria;
 
+    [Header("Caderno")]
+    public GameObject caderno;
+    bool cadernoNaMao;
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -40,8 +44,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Move();
-        Lanterna();
+        if(parado == false)
+        {
+            Move();
+            Lanterna();
+            ToggleCaderno();
+        }
     }
 
     void animacao()
@@ -145,4 +153,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    void ToggleCaderno()
+    {
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            cadernoNaMao = !cadernoNaMao;
+        }
+        if(cadernoNaMao == true)
+        {
+            caderno.SetActive(true);
+        }
+        else
+        {
+            caderno.SetActive(false);
+        }
+
+    }
 }

@@ -12,6 +12,7 @@ TagManager:
   - alavanca
   - Cama
   - Porta
+  - Porta2
   layers:
   - Default
   - TransparentFX

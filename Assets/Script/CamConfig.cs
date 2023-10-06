@@ -28,6 +28,8 @@ public class CamConfig : MonoBehaviour
     Luz luz;
     Luz2 luz2;
     porta porta;
+    portaSemInteracao porta2;
+    Carta1 carta;
 
     void Start()
     {
@@ -43,7 +45,10 @@ public class CamConfig : MonoBehaviour
     {
         if(GameController.instance.isPause == false)
         {
-            ControleCam();
+            if(Player.parado == false)
+            {
+                ControleCam();
+            }
             look();
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -96,13 +101,24 @@ public class CamConfig : MonoBehaviour
                 {
                     if(Input.GetKeyDown(KeyCode.E))
                     {
-                        Player.bateriaAtual += 10;
-                        Destroy(outlineObject.gameObject);
+                        if(inventario.fosforo <= 4)
+                        {
+                            inventario.fosforo++;
+                            Destroy(outlineObject.gameObject);
+                        }
+                        else
+                        {
+                            GameController.instance.ShowInformacao("Ja tenho muitos guardados");
+                        }
                     }
                 }
                 else if (outlineObject.CompareTag("carta1"))
                 {
-                    Carta1.podePegar = true;
+                    carta = hit.transform.GetComponent<Carta1>();
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        carta.togglePegar();
+                    }
                 }
                 else if (outlineObject.CompareTag("Luz"))
                 {
@@ -149,6 +165,15 @@ public class CamConfig : MonoBehaviour
                         porta.Animacao();
                     }
                 }
+                else if (outlineObject.CompareTag("Porta2"))
+                {
+                    porta2 = hit.transform.GetComponent<portaSemInteracao>();
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        porta2.Animacao();
+                        GameController.instance.ShowInformacao("'Hmm... parece Trancado'");
+                    }
+                }
             }
         }
         else
@@ -156,10 +181,6 @@ public class CamConfig : MonoBehaviour
             if (outlineObject != null)
             {
                 outlineObject.Deselect();
-                if (outlineObject.CompareTag("carta1"))
-                {
-                    Carta1.podePegar = false;
-                }
             }
             outlineObject = null;
         }
