@@ -7,6 +7,7 @@ public class item : MonoBehaviour
 
     bool podePegar = false;
     public GameObject itemMao;
+    public GameObject itemLocal;
 
     void Start()
     {
@@ -20,31 +21,23 @@ public class item : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
-                itemMao.SetActive(true);
-                itemChao.comMaleta = true;
-                Destroy(gameObject);
+                if(GameController.instance.task == 2)
+                {
+                    Player.comItem = true;
+                    itemLocal.SetActive(true);
+                    itemMao.SetActive(true);
+                    Destroy(gameObject);
+                }
+                else if(GameController.instance.task == 1)
+                {
+                    GameController.instance.ShowInformacao("Primeiro as noticias depois o trabalho");
+                }
             }
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if(GameController.instance.whiteCam == false)
-        {
-            if (other.CompareTag("Player"))
-            {
-                podePegar = true;
-            }
-        }
 
-    }
-    private void OnTriggerExit(Collider other)
+    public void togglePegar()
     {
-        if (GameController.instance.whiteCam == false)
-        {
-            if (other.CompareTag("Player"))
-            {
-                podePegar = false;
-            }
-        }
+        podePegar = !podePegar;
     }
 }

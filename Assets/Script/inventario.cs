@@ -92,7 +92,7 @@ public class inventario : MonoBehaviour
 
     void toggleInventario()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             showInvetario = !showInvetario;
         }

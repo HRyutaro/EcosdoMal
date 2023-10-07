@@ -30,6 +30,9 @@ public class CamConfig : MonoBehaviour
     porta porta;
     portaSemInteracao porta2;
     Carta1 carta;
+    jornal jornal;
+    item item;
+    itemChao itemChao;
 
     void Start()
     {
@@ -120,6 +123,14 @@ public class CamConfig : MonoBehaviour
                         carta.togglePegar();
                     }
                 }
+                else if (outlineObject.CompareTag("jornal"))
+                {
+                    jornal = hit.transform.GetComponent<jornal>();
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        jornal.togglePegar();
+                    }
+                }
                 else if (outlineObject.CompareTag("Luz"))
                 {
                     luz = hit.transform.GetComponent<Luz>();
@@ -138,7 +149,7 @@ public class CamConfig : MonoBehaviour
                 }
                 else if(outlineObject.CompareTag("Cama"))
                 {
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E) && GameController.instance.task == 4)
                     {
                         SceneManager.LoadScene("Dia2");
                     }
@@ -174,6 +185,45 @@ public class CamConfig : MonoBehaviour
                         GameController.instance.ShowInformacao("'Hmm... parece Trancado'");
                     }
                 }
+                else if (outlineObject.CompareTag("Gas"))
+                {
+                    item = hit.transform.GetComponent<item>();
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        item.togglePegar();
+                    }
+                }
+                else if (outlineObject.CompareTag("GasChao"))
+                {
+                    itemChao = hit.transform.GetComponent<itemChao>();
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        itemChao.toggleColocar();
+                    }
+                }
+                else if (outlineObject.CompareTag("Cano"))
+                {
+                    if(GameController.instance.task == 3 && Input.GetKey(KeyCode.E) && Cano.giradas <= 999)
+                    {
+                        Cano.giradas += 1f;
+                        hit.transform.Rotate(new Vector3(0, 1, 0));
+                        print("giradas " + Cano.giradas);
+                    }
+                }
+                else if (outlineObject.CompareTag("Beer"))
+                {
+                    if (GameController.instance.task == 4 && Input.GetKey(KeyCode.E))
+                    {
+                        Player.parado = true;
+                        GameController.instance.ShowInformacao("Que dia, precisava dessa bebida, devo estar vendo coisas mas deve ser so cansaço");
+                        Invoke("TrocarCena", 4f);
+                       
+                    }
+                    else if(Input.GetKey(KeyCode.E))
+                    {
+                        GameController.instance.ShowInformacao("Deve terminar minhas tarefas antes");
+                    }
+                }
             }
         }
         else
@@ -185,5 +235,10 @@ public class CamConfig : MonoBehaviour
             outlineObject = null;
         }
 
+    }
+
+    void TrocarCena()
+    {
+        SceneManager.LoadScene("Dia3");
     }
 }

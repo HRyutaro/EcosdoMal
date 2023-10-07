@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     Vector3 strafe;
     Vector3 vertical;
 
+    public static bool comItem;
+
     [Header("MoviConf")]
     public Animator anim;
     public float forwardSpeed = 5f;
@@ -31,6 +33,7 @@ public class Player : MonoBehaviour
     [Header("Caderno")]
     public GameObject caderno;
     bool cadernoNaMao;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -47,8 +50,17 @@ public class Player : MonoBehaviour
         if(parado == false)
         {
             Move();
-            Lanterna();
-            ToggleCaderno();
+            if(comItem == false)
+            {
+                Lanterna();
+                ToggleCaderno();
+            }
+            else
+            {
+                lanterna.enabled = false;
+                lanternaObjeto.SetActive(false);
+                caderno.SetActive(false);
+            }
         }
     }
 
@@ -116,17 +128,14 @@ public class Player : MonoBehaviour
             bateriaAtual -= Time.deltaTime;
 
             // Atualiza a intensidade da luz com base na carga da bateria
-            if(bateriaAtual >= bateriaMax/2)
+
+            if(bateriaAtual >= 7.5f)
             {
                 lanterna.intensity = 2;
             }
-            else if(bateriaAtual <= bateriaMax/2)
-            {
-                lanterna.intensity = 1;
-            }
             else if(bateriaAtual <= 7.5f)
             {
-                lanterna.intensity = 0.5f;
+                lanterna.intensity = 1;
             }
         }
         else
@@ -155,7 +164,7 @@ public class Player : MonoBehaviour
 
     void ToggleCaderno()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.Tab))
         {
             cadernoNaMao = !cadernoNaMao;
         }

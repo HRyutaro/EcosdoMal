@@ -6,10 +6,9 @@ public class itemChao : MonoBehaviour
 {
 
     bool podecolocar = false;
-    public Collider col;
-    public MeshRenderer mesh;
-    public GameObject highlight;
-    public GameObject maleta;
+    public GameObject item;
+    public GameObject itemMao;
+    public GameObject CheckList;
 
     public static bool comMaleta = false;
     void Start()
@@ -22,28 +21,18 @@ public class itemChao : MonoBehaviour
     {
         if(podecolocar == true && Input.GetKeyDown(KeyCode.E))
         {
-            col.enabled = true;
-            mesh.enabled = true;
+            item.SetActive(true);
+            CheckList.SetActive(true);
             GameController.instance.task = 3;
-            print("task " + GameController.instance.task);
-            Destroy(highlight);
-            Destroy(maleta);
+            Player.comItem = false;
+            Destroy(gameObject);
+            Destroy(itemMao);
         }
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void toggleColocar()
     {
-            if (other.CompareTag("Player") && comMaleta == true)
-            {
-                podecolocar = true;
-            }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-            if (other.CompareTag("Player") && comMaleta == true)
-            {
-                podecolocar = false;
-            }
+        podecolocar = !podecolocar;
     }
 }
