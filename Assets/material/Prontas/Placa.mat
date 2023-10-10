@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: parede
+  m_Name: Placa
   m_Shader: {fileID: 47, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
   - _METALLICGLOSSMAP
@@ -25,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 21a6aa9178c8e8c40b67588cce0716ae, type: 3}
+        m_Texture: {fileID: 2800000, guid: 93ee8686997f67541bfbe690e9f5beef, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -45,23 +45,23 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 209499b172ba72745abad882150a7e63, type: 3}
+        m_Texture: {fileID: 2800000, guid: d196ad4a41fff1b459af95e183fc1509, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 334dc62e23467944e90545e0b14ff329, type: 3}
+        m_Texture: {fileID: 2800000, guid: cd13af1a5e2871442b97ed29939485f0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: d6316054a2e5207458e8666720a80009, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: 6cf9436a27b1d4e4aaa150a505c7e8e5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 879bea79defe9fd429099235b4203a62, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
-        m_Texture: {fileID: 2800000, guid: ec102f5c8a01fce40ade66aa5dc6bb11, type: 3}
+        m_Texture: {fileID: 2800000, guid: e6d4bbb827cb1844592dbb90f454b22f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []

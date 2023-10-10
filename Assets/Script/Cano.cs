@@ -16,7 +16,7 @@ public class Cano : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(giradas == 1000)
+        if(giradas == 500)
         {
             outline.OutlineColor = Color.green;
             checkList.SetActive(true);
