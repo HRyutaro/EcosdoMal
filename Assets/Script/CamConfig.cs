@@ -203,11 +203,11 @@ public class CamConfig : MonoBehaviour
                 }
                 else if (outlineObject.CompareTag("Cano"))
                 {
-                    if(GameController.instance.task == 3 && Input.GetKey(KeyCode.E) && Cano.giradas <= 999)
+                    if(GameController.instance.task == 3 && Input.GetKey(KeyCode.E) && Cano.giradas <= 499)
                     {
                         Cano.giradas += 1f;
                         hit.transform.Rotate(new Vector3(0, 1, 0));
-                        print("giradas " + Cano.giradas);
+
                     }
                 }
                 else if (outlineObject.CompareTag("Beer"))
@@ -222,6 +222,91 @@ public class CamConfig : MonoBehaviour
                     else if(Input.GetKey(KeyCode.E))
                     {
                         GameController.instance.ShowInformacao("Deve terminar minhas tarefas antes");
+                    }
+                }
+                else if (outlineObject.CompareTag("roscaPia"))
+                {
+                    if (GameController.instance.task == 2 && Input.GetKey(KeyCode.E))
+                    {
+
+                        if(Pia.giros > 499 && Input.GetKeyDown(KeyCode.E))
+                        {
+                            Pia.tirou = true;
+                        }
+                        else if (Pia.giros <= 499)
+                        {
+                            Pia.giros += 1;
+                            hit.transform.Rotate(new Vector3(0, 1, 0));
+                        }
+
+                    }
+                }
+                else if (outlineObject.CompareTag("roscaPia1"))
+                {
+                    if (GameController.instance.task == 2 && Input.GetKey(KeyCode.E))
+                    {
+                        if (Pia.giros1 > 499 && Input.GetKeyDown(KeyCode.E))
+                        {
+                            Pia.tirou1 = true;
+                        }
+                        else if (Pia.giros1 <= 499)
+                        {
+                            Pia.giros1 += 1;
+                            hit.transform.Rotate(new Vector3(0, 1, 0));
+                        }
+                    }
+                }
+                else if (outlineObject.CompareTag("CanoPia"))
+                {
+                    if (GameController.instance.task == 2 && Input.GetKey(KeyCode.E))
+                    {
+                        if(Pia.podeTirar2 == true)
+                        {
+                            Pia.tirou2 = true;
+                        }
+                    }
+                }
+                else if (outlineObject.CompareTag("localroscaPiaC"))
+                {
+                    if (GameController.instance.task == 2 && Input.GetKeyDown(KeyCode.E))
+                    {
+                        Pia.colocou = true;
+                    }
+                }
+                else if (outlineObject.CompareTag("localroscaPiaC1"))
+                {
+                    if (GameController.instance.task == 2 && Input.GetKeyDown(KeyCode.E))
+                    {
+                        Pia.colocou1 = true;
+                    }
+                }
+                else if (outlineObject.CompareTag("localCanoPiaC"))
+                {
+                    if (GameController.instance.task == 2 && Input.GetKeyDown(KeyCode.E))
+                    {
+                        Pia.colocou2 = true;
+                    }
+                }
+                else if (outlineObject.CompareTag("roscaPiaC"))
+                {
+                    if (GameController.instance.task == 2 && Input.GetKey(KeyCode.E))
+                    {
+                        if (Pia.colocou == true && Pia.girosC <= 499)
+                        {
+                            Pia.girosC += 1;
+                            hit.transform.Rotate(new Vector3(0, 1, 0));
+                        }
+                    }
+                }
+                else if (outlineObject.CompareTag("roscaPiaC1"))
+                {
+                    if (GameController.instance.task == 2 && Input.GetKey(KeyCode.E))
+                    {
+                        if (Pia.colocou == true && Pia.girosC1 <= 499)
+                        {
+                            Pia.girosC1 += 1;
+                            hit.transform.Rotate(new Vector3(0, 1, 0));
+                        }
                     }
                 }
             }

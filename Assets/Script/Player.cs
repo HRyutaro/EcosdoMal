@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public float forwardSpeed = 5f;
     public float strafeSpeed = 5f;
     public static bool parado;
+    bool agachado;
 
     public float gravity;
     float jumpSpeed;
@@ -50,7 +51,9 @@ public class Player : MonoBehaviour
         if(parado == false)
         {
             Move();
-            if(comItem == false)
+            Agachar();
+
+            if (comItem == false)
             {
                 Lanterna();
                 ToggleCaderno();
@@ -103,13 +106,15 @@ public class Player : MonoBehaviour
 
         controller.Move(finalVelocity * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift)&& agachado == false)
         {
             forwardSpeed = 10f;
+            strafeSpeed = 10f;
         }
-        else if(Input.GetKeyUp(KeyCode.LeftShift))
+        else if(Input.GetKeyUp(KeyCode.LeftShift)&& agachado == false)
         {
             forwardSpeed = 5f;
+            strafeSpeed = 5f;
         }
     }
     void Lanterna()
@@ -177,5 +182,24 @@ public class Player : MonoBehaviour
             caderno.SetActive(false);
         }
 
+    }
+
+    void Agachar()
+    {
+        if(Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            agachado = !agachado;
+        }
+        if(agachado == true)
+        {
+            anim.SetBool("agachado", true);
+            forwardSpeed = 2.5f;
+            strafeSpeed = 2.5f;
+        }
+        else
+        {
+            anim.SetBool("agachado", false);
+            strafeSpeed = 5;
+        }
     }
 }

@@ -18,6 +18,15 @@ TagManager:
   - GasChao
   - Cano
   - Beer
+  - roscaPia
+  - roscaPia1
+  - CanoPia
+  - roscaPiaC
+  - roscaPiaC1
+  - CanoPiaC
+  - localroscaPiaC
+  - localroscaPiaC1
+  - localCanoPiaC
   layers:
   - Default
   - TransparentFX

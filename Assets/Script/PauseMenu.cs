@@ -16,10 +16,6 @@ void Start()
 }
     void Update()
     {
-        if (!isPaused)
-        {
-
-        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseScreen();

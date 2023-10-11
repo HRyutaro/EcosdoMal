@@ -19,7 +19,7 @@ public class OutlineObject : MonoBehaviour
 
     public void Select()
     {
-        outline.OutlineWidth = 2;
+        outline.OutlineWidth = 4;
     }
 
     public void Deselect()

@@ -6,10 +6,9 @@ public class CaixaDeluz : MonoBehaviour
 {
     public static bool podeUsar = false;
     public Collider col;
-    public GameObject Cima;
-    public GameObject Baixo;
 
     public static bool lightout = false;
+    public Animator anim;
 
     void Start()
     {
@@ -21,13 +20,11 @@ public class CaixaDeluz : MonoBehaviour
     {
         if (lightout == true)
         {
-            Cima.SetActive(false);
-            Baixo.SetActive(true);
+            anim.SetBool("ligado", true);
         }
         else if (lightout == false)
         {
-            Cima.SetActive(true);
-            Baixo.SetActive(false);
+            anim.SetBool("ligado", false);
         }
     }
 
