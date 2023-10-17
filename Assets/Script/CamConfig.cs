@@ -24,6 +24,8 @@ public class CamConfig : MonoBehaviour
     public float smoothCoefy = 0.005f;
     public float range = 5;
 
+    public AudioSource sound;
+
     OutlineObject outlineObject;
     Luz luz;
     Luz2 luz2;
@@ -217,6 +219,10 @@ public class CamConfig : MonoBehaviour
                         Player.parado = true;
                         GameController.instance.ShowInformacao("Que dia, precisava dessa bebida, devo estar vendo coisas mas deve ser so cansaço");
                         Invoke("TrocarCena", 4f);
+                        if(!sound.isPlaying)
+                        {
+                            sound.Play();
+                        }
                        
                     }
                     else if(Input.GetKey(KeyCode.E))

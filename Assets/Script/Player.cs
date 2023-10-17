@@ -15,9 +15,14 @@ public class Player : MonoBehaviour
     [Header("MoviConf")]
     public Animator anim;
     public float forwardSpeed = 5f;
+    public float atualforwardSpeed;
     public float strafeSpeed = 5f;
+    public float atualstrafeSpeed;
     public static bool parado;
     bool agachado;
+    bool isRunnig;
+    public AudioSource walkSound;
+    public AudioSource runSound;
 
     public float gravity;
     float jumpSpeed;
@@ -42,6 +47,9 @@ public class Player : MonoBehaviour
         gravity = (-2 * maxJumpHeight) / (timetoMaxHeight * timetoMaxHeight);
         jumpSpeed = (2 * maxJumpHeight) / timetoMaxHeight;
 
+        atualforwardSpeed = forwardSpeed;
+        atualstrafeSpeed = strafeSpeed;
+
         bateriaAtual = bateriaMax;
     }
 
@@ -52,6 +60,7 @@ public class Player : MonoBehaviour
         {
             Move();
             Agachar();
+            animacao();
 
             if (comItem == false)
             {
@@ -72,10 +81,22 @@ public class Player : MonoBehaviour
         if(Input.GetButton("Vertical"))
         {
             anim.SetFloat("isWalk", 1);
+            if (!walkSound.isPlaying && agachado == false && isRunnig == false)
+            {
+                walkSound.Play();
+                runSound.Stop();
+            }
+            else if(!runSound.isPlaying  && isRunnig == true )
+            {
+                walkSound.Stop();
+                runSound.Play();
+            }
         }
         else
         {
             anim.SetFloat("isWalk", 0);
+            walkSound.Stop();
+            runSound.Stop();
         }
     }
 
@@ -84,8 +105,8 @@ public class Player : MonoBehaviour
         float forwardInput = Input.GetAxisRaw("Vertical");
         float strafeInput = Input.GetAxisRaw("Horizontal");
 
-        forward = forwardInput * forwardSpeed * transform.forward;
-        strafe = strafeInput * strafeSpeed * transform.right;
+        forward = forwardInput * atualforwardSpeed * transform.forward;
+        strafe = strafeInput * atualstrafeSpeed * transform.right;
 
         vertical += gravity * Time.deltaTime * Vector3.up;
         if(controller.isGrounded)
@@ -105,17 +126,21 @@ public class Player : MonoBehaviour
         Vector3 finalVelocity = forward + strafe + vertical;
 
         controller.Move(finalVelocity * Time.deltaTime);
-
         if (Input.GetKeyDown(KeyCode.LeftShift)&& agachado == false)
         {
-            forwardSpeed = 10f;
-            strafeSpeed = 10f;
+            atualforwardSpeed = 2 * forwardSpeed;
+            atualstrafeSpeed = 2 * strafeSpeed;
+            isRunnig = true;
+            anim.speed = 1.5f;
         }
         else if(Input.GetKeyUp(KeyCode.LeftShift)&& agachado == false)
         {
-            forwardSpeed = 5f;
-            strafeSpeed = 5f;
+            atualforwardSpeed = forwardSpeed;
+            atualstrafeSpeed =  strafeSpeed;
+            isRunnig = false;
+            anim.speed = 0.5f;
         }
+
     }
     void Lanterna()
     {
@@ -188,18 +213,17 @@ public class Player : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.LeftControl))
         {
-            agachado = !agachado;
-        }
-        if(agachado == true)
-        {
+            agachado = true;
             anim.SetBool("agachado", true);
-            forwardSpeed = 2.5f;
-            strafeSpeed = 2.5f;
+            atualforwardSpeed = 2.5f;
+            atualstrafeSpeed = 2.5f;
         }
-        else
+        if(Input.GetKeyUp(KeyCode.LeftControl))
         {
+            agachado = false;
             anim.SetBool("agachado", false);
-            strafeSpeed = 5;
+            atualforwardSpeed = forwardSpeed;
+            atualstrafeSpeed = strafeSpeed;
         }
     }
 }

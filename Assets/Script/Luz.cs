@@ -11,6 +11,7 @@ public class Luz : MonoBehaviour
 
     public GameObject cima;
     public GameObject baixo;
+    public AudioSource sound;
 
     void Start()
     {
@@ -54,6 +55,7 @@ public class Luz : MonoBehaviour
 
     public void LigaDesliga()
     {
+        sound.Play();
         if (lights == true)
         {
             lights = false;
