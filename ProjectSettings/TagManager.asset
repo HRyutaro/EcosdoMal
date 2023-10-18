@@ -27,6 +27,9 @@ TagManager:
   - localroscaPiaC
   - localroscaPiaC1
   - localCanoPiaC
+  - Machado
+  - Vassoura
+  - sujeira
   layers:
   - Default
   - TransparentFX

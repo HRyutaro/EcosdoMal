@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Pia : MonoBehaviour
 {
+    public GameObject checklist;
+
     public static float giros;
     public GameObject roscaQuebrada;
     public static bool tirou;
@@ -56,6 +58,7 @@ public class Pia : MonoBehaviour
         {
             GameController.instance.task = 3;
             piaconsertada.SetActive(true);
+            checklist.SetActive(true);
             Destroy(gameObject);
         }
     }

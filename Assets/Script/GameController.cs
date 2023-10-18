@@ -35,19 +35,23 @@ public class GameController : MonoBehaviour
 
     void Task()
     {
-        if(task == 1)
+        if(task == 1 && task <= tarefas.Length)
         {
             TextTela.text = tarefas[0];
         }
-        else if(task == 2)
+        else if(task == 2 && task <= tarefas.Length)
         {
             TextTela.text = tarefas[1];
         }
-        else if (task == 3)
+        else if (task == 3 && task <= tarefas.Length)
         {
             TextTela.text = tarefas[2];
         }
-        else if (task == 4)
+        else if (task == 4 && task <= tarefas.Length)
+        {
+            TextTela.text = tarefas[3];
+        }
+        else if (task == 5 && task <= tarefas.Length)
         {
             TextTela.text = tarefas[3];
         }

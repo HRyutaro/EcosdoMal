@@ -26,6 +26,8 @@ public class CamConfig : MonoBehaviour
 
     public AudioSource sound;
 
+    public static bool comVassoura;
+
     OutlineObject outlineObject;
     Luz luz;
     Luz2 luz2;
@@ -35,17 +37,20 @@ public class CamConfig : MonoBehaviour
     jornal jornal;
     item item;
     itemChao itemChao;
+    MachadoItem machadoItem;
+    vassouraItem vassoura;
 
     void Start()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        comVassoura = false;
     }
     private void LateUpdate()
     {
          transform.position = characterHead.position;
     }
-    // Update is called once per frame
+
     void Update()
     {
         if(GameController.instance.isPause == false)
@@ -101,7 +106,7 @@ public class CamConfig : MonoBehaviour
             if(outlineObject != null)
             {
                 outlineObject.Select();
-                Debug.Log(outlineObject.name);
+                //Debug.Log(outlineObject.name);
                 if(outlineObject.CompareTag("fosforo"))
                 {
                     if(Input.GetKeyDown(KeyCode.E))
@@ -232,17 +237,23 @@ public class CamConfig : MonoBehaviour
                 }
                 else if (outlineObject.CompareTag("roscaPia"))
                 {
-                    if (GameController.instance.task == 2 && Input.GetKey(KeyCode.E))
+                    if (Input.GetKey(KeyCode.E))
                     {
-
-                        if(Pia.giros > 499 && Input.GetKeyDown(KeyCode.E))
+                        if(GameController.instance.task == 2)
                         {
-                            Pia.tirou = true;
+                            if(Pia.giros > 499 && Input.GetKeyDown(KeyCode.E))
+                            {
+                                Pia.tirou = true;
+                            }
+                            else if (Pia.giros <= 499)
+                            {
+                                Pia.giros += 1;
+                                hit.transform.Rotate(new Vector3(0, 1, 0));
+                            }
                         }
-                        else if (Pia.giros <= 499)
+                        else
                         {
-                            Pia.giros += 1;
-                            hit.transform.Rotate(new Vector3(0, 1, 0));
+                            GameController.instance.ShowInformacao("Vamos ler o jornal antes de começar as tarefas");
                         }
 
                     }
@@ -313,6 +324,41 @@ public class CamConfig : MonoBehaviour
                             Pia.girosC1 += 1;
                             hit.transform.Rotate(new Vector3(0, 1, 0));
                         }
+                    }
+                }
+                else if (outlineObject.CompareTag("Machado"))
+                {
+                    machadoItem = hit.transform.GetComponent<MachadoItem>();
+                    if (GameController.instance.task == 3 && Input.GetKey(KeyCode.E))
+                    {
+                        machadoItem.afiar();
+                    }
+                    else
+                    {
+                        if (Input.GetKey(KeyCode.E))
+                        {
+                            GameController.instance.ShowInformacao("primeiro devo consertar a pia");
+                        }
+                    }
+                }
+                else if(outlineObject.CompareTag("Vassoura"))
+                {
+                    vassoura = hit.transform.GetComponent<vassouraItem>();
+                    if(Input.GetKeyDown(KeyCode.E))
+                    {
+                        vassoura.pegar();
+                    }
+                }
+                else if(outlineObject.CompareTag("sujeira"))
+                {
+                    if (Input.GetKeyDown(KeyCode.E)&& comVassoura == true)
+                    {
+                        SujeiraControl.sujeiras += 1;
+                        Destroy(outlineObject.gameObject);
+                    }
+                    else if (Input.GetKeyDown(KeyCode.E) && comVassoura == false)
+                    {
+                        GameController.instance.ShowInformacao("Preciso do esfregão para limpar isso");
                     }
                 }
             }

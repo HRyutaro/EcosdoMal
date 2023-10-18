@@ -61,16 +61,14 @@ public class Player : MonoBehaviour
             Move();
             Agachar();
             animacao();
+            Lanterna();
 
             if (comItem == false)
             {
-                Lanterna();
                 ToggleCaderno();
             }
             else
             {
-                lanterna.enabled = false;
-                lanternaObjeto.SetActive(false);
                 caderno.SetActive(false);
             }
         }

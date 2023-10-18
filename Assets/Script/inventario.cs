@@ -27,7 +27,7 @@ public class inventario : MonoBehaviour
     }
     void Usarfosforo()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        if(Input.GetKeyDown(KeyCode.R) && Player.comItem == false && Player.parado == false)
         {
             if(fosforo >= 1)
             {
