@@ -20,6 +20,7 @@ public class Cano : MonoBehaviour
         {
             outline.OutlineColor = Color.green;
             checkList.SetActive(true);
+            GameController.instance.task = 4;
         }
     }
 }

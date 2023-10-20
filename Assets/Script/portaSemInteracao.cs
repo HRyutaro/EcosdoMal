@@ -7,6 +7,8 @@ public class portaSemInteracao : MonoBehaviour
     public Animator anim;
     bool abrir;
 
+    public AudioSource somTrancado;
+
     void Start()
     {
 
@@ -18,10 +20,12 @@ public class portaSemInteracao : MonoBehaviour
         if (abrir == true)
         {
             anim.SetFloat("abrirFechar", 1);
+            
         }
         else
         {
             anim.SetFloat("abrirFechar", 0);
+            
         }
     }
 
@@ -30,10 +34,12 @@ public class portaSemInteracao : MonoBehaviour
         if (abrir == true)
         {
             abrir = false;
+            somTrancado.Play();
         }
         else
         {
             abrir = true;
+            somTrancado.Play();
         }
     }
 }

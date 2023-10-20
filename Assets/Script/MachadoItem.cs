@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class MachadoItem : MonoBehaviour
 {
-    public GameObject machadoInferrujado;
     bool inferrujado = true;
-
+    public AudioSource somAfiar;
     public GameObject checklist;
     void Start()
     {
@@ -16,16 +15,12 @@ public class MachadoItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(inferrujado == true)
+        if(inferrujado == false)
         {
-            machadoInferrujado.SetActive(false);
-        }
-        else
-        {
+            
             GameController.instance.task = 4;
-            machadoInferrujado.SetActive(true);
             checklist.SetActive(true);
-            Destroy(gameObject);
+            Destroy(gameObject, 1);
         }
     }
 
@@ -33,6 +28,7 @@ public class MachadoItem : MonoBehaviour
     {
         if (inferrujado == true)
         {
+            somAfiar.Play();
             inferrujado = false;
         }
     }

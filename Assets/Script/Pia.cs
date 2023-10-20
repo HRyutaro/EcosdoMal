@@ -59,7 +59,7 @@ public class Pia : MonoBehaviour
             GameController.instance.task = 3;
             piaconsertada.SetActive(true);
             checklist.SetActive(true);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
     void tirar()

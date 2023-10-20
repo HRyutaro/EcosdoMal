@@ -8,24 +8,18 @@ public class porta : MonoBehaviour
     public Animator anim2;
     bool abrir;
 
+    public AudioSource somAbrir;
+    public AudioSource somFechado;
+
     void Start()
     {
-        
+
     }
 
 
     void Update()
     {
-        if(abrir == true)
-        {
-            anim.SetFloat("abrirFechar", 1);
-            anim2.SetFloat("abrirFechar", 1);
-        }
-        else
-        {
-            anim.SetFloat("abrirFechar", 0);
-            anim2.SetFloat("abrirFechar", 0);
-        }
+
     }
 
     public void Animacao()
@@ -33,10 +27,28 @@ public class porta : MonoBehaviour
         if(abrir == true)
         {
             abrir = false;
+            portaMudar();
         }
         else
         {
             abrir = true;
+            portaMudar();
+        }
+    }
+
+    void portaMudar()
+    {
+        if (abrir == true)
+        {
+            somAbrir.Play();
+            anim.SetFloat("abrirFechar", 1);
+            anim2.SetFloat("abrirFechar", 1);
+        }
+        else
+        {
+            somFechado.Play();
+            anim.SetFloat("abrirFechar", 0);
+            anim2.SetFloat("abrirFechar", 0);
         }
     }
 }

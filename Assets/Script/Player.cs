@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
     {
         if(Input.GetButton("Vertical"))
         {
-            anim.SetFloat("isWalk", 1);
+            //anim.SetFloat("isWalk", 1);
             if (!walkSound.isPlaying && agachado == false && isRunnig == false)
             {
                 walkSound.Play();
@@ -92,7 +92,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            anim.SetFloat("isWalk", 0);
+            //anim.SetFloat("isWalk", 0);
             walkSound.Stop();
             runSound.Stop();
         }

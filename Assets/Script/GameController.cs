@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
 
     public int task;
     public bool isPause;
+    public static int days;
 
     void Start()
     {
@@ -24,6 +25,10 @@ public class GameController : MonoBehaviour
         task = 1;
         print("task " + task);
         TextTelaInfo.enabled = false;
+        if(days == 3)
+        {
+            ShowInformacao("'Aiii minha cabeça, acho que bebi demais'");
+        }
     }
 
 

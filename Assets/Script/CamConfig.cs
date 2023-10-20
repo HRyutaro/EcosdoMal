@@ -221,6 +221,7 @@ public class CamConfig : MonoBehaviour
                 {
                     if (GameController.instance.task == 4 && Input.GetKey(KeyCode.E))
                     {
+                        GameController.days = 3;
                         Player.parado = true;
                         GameController.instance.ShowInformacao("Que dia, precisava dessa bebida, devo estar vendo coisas mas deve ser so cansaço");
                         Invoke("TrocarCena", 4f);
@@ -244,6 +245,7 @@ public class CamConfig : MonoBehaviour
                             if(Pia.giros > 499 && Input.GetKeyDown(KeyCode.E))
                             {
                                 Pia.tirou = true;
+                                outlineObject.Deselect();
                             }
                             else if (Pia.giros <= 499)
                             {
@@ -265,6 +267,7 @@ public class CamConfig : MonoBehaviour
                         if (Pia.giros1 > 499 && Input.GetKeyDown(KeyCode.E))
                         {
                             Pia.tirou1 = true;
+                            outlineObject.Deselect();
                         }
                         else if (Pia.giros1 <= 499)
                         {
@@ -280,6 +283,7 @@ public class CamConfig : MonoBehaviour
                         if(Pia.podeTirar2 == true)
                         {
                             Pia.tirou2 = true;
+                            outlineObject.Deselect();
                         }
                     }
                 }
@@ -288,6 +292,7 @@ public class CamConfig : MonoBehaviour
                     if (GameController.instance.task == 2 && Input.GetKeyDown(KeyCode.E))
                     {
                         Pia.colocou = true;
+                        outlineObject.Deselect();
                     }
                 }
                 else if (outlineObject.CompareTag("localroscaPiaC1"))
@@ -295,6 +300,7 @@ public class CamConfig : MonoBehaviour
                     if (GameController.instance.task == 2 && Input.GetKeyDown(KeyCode.E))
                     {
                         Pia.colocou1 = true;
+                        outlineObject.Deselect();
                     }
                 }
                 else if (outlineObject.CompareTag("localCanoPiaC"))
@@ -302,6 +308,7 @@ public class CamConfig : MonoBehaviour
                     if (GameController.instance.task == 2 && Input.GetKeyDown(KeyCode.E))
                     {
                         Pia.colocou2 = true;
+                        outlineObject.Deselect();
                     }
                 }
                 else if (outlineObject.CompareTag("roscaPiaC"))
