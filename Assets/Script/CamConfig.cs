@@ -219,12 +219,19 @@ public class CamConfig : MonoBehaviour
                 }
                 else if (outlineObject.CompareTag("Beer"))
                 {
-                    if (GameController.instance.task == 4 && Input.GetKey(KeyCode.E))
+                    if (GameController.instance.task == GameController.instance.tarefas.Length && Input.GetKey(KeyCode.E))
                     {
-                        GameController.days = 3;
                         Player.parado = true;
-                        GameController.instance.ShowInformacao("Que dia, precisava dessa bebida, devo estar vendo coisas mas deve ser so cansaço");
-                        Invoke("TrocarCena", 4f);
+                        if(GameController.days == 2)
+                        {
+                            GameController.instance.ShowInformacao("Que dia, precisava dessa bebida, devo estar vendo coisas mas deve ser so cansaço");
+                            Invoke("TrocarCena", 4f);
+                        }
+                        else if(GameController.days == 3)
+                        {
+                            GameController.instance.ShowInformacao("Estou comecando a alucinar, preciso beber pra relaxar");
+                            Invoke("TrocarCena2", 4f);
+                        }
                         if(!sound.isPlaying)
                         {
                             sound.Play();
@@ -336,13 +343,13 @@ public class CamConfig : MonoBehaviour
                 else if (outlineObject.CompareTag("Machado"))
                 {
                     machadoItem = hit.transform.GetComponent<MachadoItem>();
-                    if (GameController.instance.task == 3 && Input.GetKey(KeyCode.E))
+                    if (GameController.instance.task == 3 && Input.GetKeyDown(KeyCode.E))
                     {
                         machadoItem.afiar();
                     }
                     else
                     {
-                        if (Input.GetKey(KeyCode.E))
+                        if (Input.GetKeyDown(KeyCode.E) && GameController.instance.task != 3)
                         {
                             GameController.instance.ShowInformacao("primeiro devo consertar a pia");
                         }
@@ -383,6 +390,13 @@ public class CamConfig : MonoBehaviour
 
     void TrocarCena()
     {
+        Player.parado = false;
         SceneManager.LoadScene("Dia3");
+    }
+
+    void TrocarCena2()
+    {
+        Player.parado = false;
+        SceneManager.LoadScene("Dia4");
     }
 }

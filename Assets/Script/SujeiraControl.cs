@@ -6,10 +6,13 @@ public class SujeiraControl : MonoBehaviour
 {
     public static int sujeiras;
     public GameObject checklist;
+    public AudioSource somElevador;
+    public GameObject criança;
 
     void Start()
     {
         sujeiras = 0;
+        
     }
 
 
@@ -17,8 +20,11 @@ public class SujeiraControl : MonoBehaviour
     {
         if(sujeiras == 5 && GameController.instance.task == 4)
         {
+            inventario.mao = 0;
+            GameController.instance.ShowInformacao("O que é isso? O elevador não está funcionando, vou dar uma olhada");
+            criança.SetActive(true);
+            somElevador.Play();
             GameController.instance.task = 5;
-            CaixaDeluz.lightout = true;
             checklist.SetActive(true);
             Destroy(gameObject);
         }

@@ -7,7 +7,7 @@ public class Assombracao : MonoBehaviour
     public GameObject objeto;
     public GameObject assombracao;
     public int numeroTask;
-
+    public AudioSource som;
     void Start()
     {
         assombracao.SetActive(false);
@@ -25,6 +25,7 @@ public class Assombracao : MonoBehaviour
     {
         if(other.CompareTag("Player") && GameController.instance.task == numeroTask)
         {
+            som.Play();
             Destroy(objeto);
         }
     }

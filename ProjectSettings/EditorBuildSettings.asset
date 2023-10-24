@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dia3.unity
     guid: dc63bd5e977997f45972c936da700110
+  - enabled: 1
+    path: Assets/Scenes/Dia4.unity
+    guid: 27a50cba50b9d5a49831999029dbfc07
   m_configObjects: {}

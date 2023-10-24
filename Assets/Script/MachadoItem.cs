@@ -17,7 +17,7 @@ public class MachadoItem : MonoBehaviour
     {
         if(inferrujado == false)
         {
-            
+            inventario.machadoBloq = false;
             GameController.instance.task = 4;
             checklist.SetActive(true);
             Destroy(gameObject, 1);

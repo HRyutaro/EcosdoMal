@@ -72,6 +72,11 @@ public class Player : MonoBehaviour
                 caderno.SetActive(false);
             }
         }
+        else
+        {
+            walkSound.Stop();
+            runSound.Stop();
+        }
     }
 
     void animacao()
@@ -153,7 +158,10 @@ public class Player : MonoBehaviour
         if (lanterna.enabled && bateriaAtual > 0)
         {
             // Reduz a bateria com o tempo (ajuste o valor como desejado)
-            bateriaAtual -= Time.deltaTime;
+            if(parado == false)
+            {
+                bateriaAtual -= Time.deltaTime;
+            }
 
             // Atualiza a intensidade da luz com base na carga da bateria
 
@@ -192,7 +200,7 @@ public class Player : MonoBehaviour
 
     void ToggleCaderno()
     {
-        if(Input.GetKeyDown(KeyCode.Tab))
+        if(Input.GetKeyDown(KeyCode.Tab) && inventario.usarCaderno == true)
         {
             cadernoNaMao = !cadernoNaMao;
         }

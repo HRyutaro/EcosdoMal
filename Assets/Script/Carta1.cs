@@ -8,6 +8,7 @@ public class Carta1 : MonoBehaviour
 
     public GameObject Carta1Tela;
     public MeshRenderer Carta1Fisica;
+    public AudioSource som;
 
     void Start()
     {
@@ -21,12 +22,14 @@ public class Carta1 : MonoBehaviour
             {
                 Carta1Tela.SetActive(false);
                 Carta1Fisica.enabled = true;
+                
             }
             else if(pegou == true)
             {
                 Carta1Tela.SetActive(true);
                 Carta1Fisica.enabled = false;
                 task1.podePegar = true;
+                
             }
     }
 
@@ -34,5 +37,6 @@ public class Carta1 : MonoBehaviour
     {
         pegou = !pegou;
         Player.parado = !Player.parado;
+        som.Play();
     }
 }
