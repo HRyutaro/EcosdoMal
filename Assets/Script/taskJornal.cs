@@ -17,7 +17,12 @@ public class taskJornal : MonoBehaviour
         if (pegou == true && Input.GetKeyDown(KeyCode.E))
         {
             GameController.instance.task = 2;
+            if(GameController.instance.Dia == 4)
+            {
+                GameController.instance.ShowInformacao("Que barulho foi esse? Veio dos Corredores");
+            }
             Destroy(gameObject);
+
         }
     }
 }

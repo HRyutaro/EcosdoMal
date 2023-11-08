@@ -21,9 +21,7 @@ public class vassouraItem : MonoBehaviour
             vassoura.SetActive(true);
             vassouraChao.SetActive(false);
             CamConfig.comVassoura = true;
-            Player.comItem = true;
-            inventario.vassouraBloq = false;
-            inventario.mao = 3;
+            Player.comVassoura = true;
             Destroy(gameObject);
         }
     }

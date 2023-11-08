@@ -18,6 +18,19 @@ public class CaixaDeluz : MonoBehaviour
 
     void Update()
     {
+        if (GameController.instance.Dia <= 4)
+        {
+            luz();
+        }
+        else
+        {
+            lightout = true;
+        }
+
+    }
+
+    void luz()
+    {
         if (lightout == true)
         {
             anim.SetBool("ligado", true);
@@ -27,5 +40,4 @@ public class CaixaDeluz : MonoBehaviour
             anim.SetBool("ligado", false);
         }
     }
-
 }

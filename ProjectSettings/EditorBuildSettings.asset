@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dia4.unity
     guid: 27a50cba50b9d5a49831999029dbfc07
+  - enabled: 1
+    path: Assets/Scenes/Dia5.unity
+    guid: 2d581aca5dc9fb74ba6fbc826261aa49
+  - enabled: 1
+    path: Assets/Scenes/Labirinto.unity
+    guid: cb8ea53f531edbc468a0b6c4ec1578e8
   m_configObjects: {}

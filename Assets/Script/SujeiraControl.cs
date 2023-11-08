@@ -20,7 +20,7 @@ public class SujeiraControl : MonoBehaviour
     {
         if(sujeiras == 5 && GameController.instance.task == 4)
         {
-            inventario.mao = 0;
+            Player.comVassoura = false;
             GameController.instance.ShowInformacao("O que é isso? O elevador não está funcionando, vou dar uma olhada");
             criança.SetActive(true);
             somElevador.Play();

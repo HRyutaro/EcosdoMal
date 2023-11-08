@@ -27,6 +27,7 @@ public class CamConfig : MonoBehaviour
     public AudioSource sound;
 
     public static bool comVassoura;
+    public static bool comArma;
 
     OutlineObject outlineObject;
     Luz luz;
@@ -39,6 +40,7 @@ public class CamConfig : MonoBehaviour
     itemChao itemChao;
     MachadoItem machadoItem;
     vassouraItem vassoura;
+    ArmaChao armachao;
 
     void Start()
     {
@@ -165,13 +167,21 @@ public class CamConfig : MonoBehaviour
                 {
                     if(Input.GetKeyDown(KeyCode.E))
                     {
-                        if(CaixaDeluz.lightout == true)
+                        if(GameController.instance.Dia <= 4)
                         {
-                            CaixaDeluz.lightout = false;
+                            if(CaixaDeluz.lightout == true)
+                            {
+                                CaixaDeluz.lightout = false;
+                            }
+                            else
+                            {
+                                CaixaDeluz.lightout = true;
+                            }
                         }
-                        else
+                        else if(GameController.instance.Dia == 5)
                         {
-                            CaixaDeluz.lightout = true;
+                            GameController.instance.ShowInformacao("'Esta emperrado, não tem jeito, melhor eu pegar o machado e resolver isso'");
+                            task1dia5.tentouAtivar = true;
                         }
                     }
                 }
@@ -232,7 +242,12 @@ public class CamConfig : MonoBehaviour
                             GameController.instance.ShowInformacao("Estou comecando a alucinar, preciso beber pra relaxar");
                             Invoke("TrocarCena2", 4f);
                         }
-                        if(!sound.isPlaying)
+                        else if (GameController.days == 4)
+                        {
+                            GameController.instance.ShowInformacao("Alucinação, alucinação e tudo alucinação, se acalma");
+                            Invoke("TrocarCena3", 4f);
+                        }
+                        if (!sound.isPlaying)
                         {
                             sound.Play();
                         }
@@ -343,13 +358,21 @@ public class CamConfig : MonoBehaviour
                 else if (outlineObject.CompareTag("Machado"))
                 {
                     machadoItem = hit.transform.GetComponent<MachadoItem>();
-                    if (GameController.instance.task == 3 && Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
-                        machadoItem.afiar();
-                    }
-                    else
-                    {
-                        if (Input.GetKeyDown(KeyCode.E) && GameController.instance.task != 3)
+                        if(GameController.instance.Dia == 5 && GameController.instance.task == 2)
+                        {
+                            MachadoDia55.pegou = true;
+                        }
+                        else if (GameController.instance.Dia == 5 && GameController.instance.task <= 1)
+                        {
+                            GameController.instance.ShowInformacao("Primeiro devo ligar as luzes");
+                        }
+                        else if(GameController.instance.task == 3 && GameController.instance.Dia <= 4)
+                        {
+                            machadoItem.afiar();
+                        }
+                        else if (GameController.instance.task != 3 && GameController.instance.Dia <= 4)
                         {
                             GameController.instance.ShowInformacao("primeiro devo consertar a pia");
                         }
@@ -375,6 +398,38 @@ public class CamConfig : MonoBehaviour
                         GameController.instance.ShowInformacao("Preciso do esfregão para limpar isso");
                     }
                 }
+                else if (outlineObject.CompareTag("Arma"))
+                {
+                    armachao = hit.transform.GetComponent<ArmaChao>();
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        armachao.pegar();
+                    }
+                }
+                else if (outlineObject.CompareTag("Labirinto"))
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        if(GameController.instance.task == 4)
+                        {
+                            SceneManager.LoadScene("Labirinto");
+                        }
+                        else if (GameController.instance.task == 1)
+                        {
+                            GameController.instance.ShowInformacao("Ligar a luz primeiro depois ir por jardim");
+                        }
+                        else if (GameController.instance.task == 2)
+                        {
+                            GameController.instance.ShowInformacao("Preciso pegar o machado");
+                        }
+                        else if (GameController.instance.task == 3)
+                        {
+                            GameController.instance.ShowInformacao("AcABaR COm EsSAS AluCinAÇõEs");
+                        }
+                    }
+
+
+                }
             }
         }
         else
@@ -398,5 +453,10 @@ public class CamConfig : MonoBehaviour
     {
         Player.parado = false;
         SceneManager.LoadScene("Dia4");
+    }
+    void TrocarCena3()
+    {
+        Player.parado = false;
+        SceneManager.LoadScene("Dia5");
     }
 }

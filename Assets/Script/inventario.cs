@@ -9,20 +9,8 @@ public class inventario : MonoBehaviour
     public GameObject inv;
     bool showInvetario;
     public Image[] item;
-    public static int mao;
-    [Header("Caderno")]
-    public static bool usarCaderno;
 
-    [Header("Machado")]
-    public static bool usarMachado;
-    public static bool machadoBloq;
-    public GameObject machado;
 
-    [Header("Vassoura")]
-    public static bool usarVassoura;
-    public static bool vassouraBloq;
-    public bool comVassoura;
-    public GameObject vassoura;
 
     void Start()
     {
@@ -32,8 +20,6 @@ public class inventario : MonoBehaviour
         item[3].enabled = false;
         item[4].enabled = false;
 
-        machadoBloq = true;
-        vassouraBloq = true;
 
     }
 
@@ -42,8 +28,6 @@ public class inventario : MonoBehaviour
         toggleInventario();
         inventarioControl();
         Usarfosforo();
-        trocarMao();
-        controleDeMao();
     }
     void Usarfosforo()
     {
@@ -54,32 +38,6 @@ public class inventario : MonoBehaviour
                 Player.bateriaAtual += 10;
                 fosforo -= 1;
             }
-        }
-    }
-    void controleDeMao()
-    {
-        if(mao == 0)
-        {
-            usarCaderno = true;
-            usarMachado = false;
-            usarVassoura = false;
-            machado.SetActive(false);
-            vassoura.SetActive(false);
-        }
-        else if (mao == 1)
-        {
-            usarCaderno = false;
-            usarMachado = true;
-            usarVassoura = false;
-            machado.SetActive(true);
-            vassoura.SetActive(false);
-        }
-        else if (mao == 2)
-        {
-            usarCaderno = false;
-            usarMachado = false;
-            usarVassoura = true;
-            machado.SetActive(false);
         }
     }
 
@@ -149,31 +107,6 @@ public class inventario : MonoBehaviour
         else
         {
             inv.SetActive(false);
-        }
-    }
-
-    void trocarMao()
-    {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            mao = 0;
-            vassoura.SetActive(false);
-            CamConfig.comVassoura = false;
-            Player.comItem = false;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2)&& machadoBloq == false)
-        {
-            mao = 1;
-            vassoura.SetActive(false);
-            CamConfig.comVassoura = false;
-            Player.comItem = true;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3)&& vassouraBloq == false)
-        {
-            mao = 2;
-            vassoura.SetActive(true);
-            CamConfig.comVassoura = true;
-            Player.comItem = true;
         }
     }
 

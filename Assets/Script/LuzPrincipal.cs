@@ -32,6 +32,10 @@ public class LuzPrincipal : MonoBehaviour
                 luz.intensity = 0;
             }
         }
+        else
+        {
+            luz.intensity = 0;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

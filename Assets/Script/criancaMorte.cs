@@ -10,7 +10,7 @@ public class criancaMorte : MonoBehaviour
     public MeshRenderer mesh;
     public AudioSource machado;
     public AudioSource grito;
-
+    public GameObject machadoMao;
    
     void Start()
     {
@@ -39,7 +39,8 @@ public class criancaMorte : MonoBehaviour
         GameController.instance.task = 6;
         yield return new WaitForSeconds(3f);
         GameController.instance.ShowInformacao("Isso é...? Não não não, são só alucinações, estou bem cansado, quero ir beber um pouco");
-        inventario.mao = 1;
+        Player.comMachado = true;
+        machadoMao.SetActive(true);
         Destroy(gameObject);
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3675996996908183034}
   - component: {fileID: 336670871031800415}
   - component: {fileID: 2542544869298181781}
-  - component: {fileID: 1934154815624086674}
+  - component: {fileID: 210560464647774729}
   m_Layer: 0
   m_Name: Cama
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1934154815624086674
+--- !u!65 &210560464647774729
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,5 +95,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.19789915, y: 0.12635703, z: 0.2548245}
-  m_Center: {x: 0, y: 0.0031465348, z: 0}
+  m_Size: {x: 0.41523325, y: 0.26512313, z: 0.5346743}
+  m_Center: {x: 0, y: 0.13015354, z: 0}

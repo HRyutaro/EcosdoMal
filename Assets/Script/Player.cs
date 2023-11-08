@@ -40,6 +40,18 @@ public class Player : MonoBehaviour
     public GameObject caderno;
     bool cadernoNaMao;
 
+    [Header("Vassoura")]
+    public static bool comVassoura;
+    public GameObject vassoura;
+
+    [Header("Machado")]
+    public static bool comMachado;
+    public GameObject machado;
+
+    [Header("Arma")]
+    public static bool comArma;
+    public GameObject Arma;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -51,6 +63,10 @@ public class Player : MonoBehaviour
         atualstrafeSpeed = strafeSpeed;
 
         bateriaAtual = bateriaMax;
+        if(GameController.days == 6)
+        {
+            comMachado = true;
+        }
     }
 
 
@@ -76,6 +92,20 @@ public class Player : MonoBehaviour
         {
             walkSound.Stop();
             runSound.Stop();
+        }
+        if(comVassoura == false)
+        {
+            vassoura.SetActive(false);
+        }
+
+        if (comMachado == false)
+        {
+            machado.SetActive(false);
+        }
+
+        if (comArma == false)
+        {
+            Arma.SetActive(false);
         }
     }
 
@@ -200,17 +230,41 @@ public class Player : MonoBehaviour
 
     void ToggleCaderno()
     {
-        if(Input.GetKeyDown(KeyCode.Tab) && inventario.usarCaderno == true)
+        if(Input.GetKeyDown(KeyCode.Tab))
         {
             cadernoNaMao = !cadernoNaMao;
         }
         if(cadernoNaMao == true)
         {
             caderno.SetActive(true);
+            if (comVassoura == true)
+            {
+                vassoura.SetActive(false);
+            }
+            if (comMachado == true)
+            {
+                machado.SetActive(false);
+            }
+            if (comArma == true)
+            {
+                Arma.SetActive(false);
+            }
         }
         else
         {
             caderno.SetActive(false);
+            if (comVassoura == true)
+            {
+                vassoura.SetActive(true);
+            }
+            if (comMachado == true)
+            {
+                machado.SetActive(true);
+            }
+            if (comArma == true)
+            {
+                Arma.SetActive(true);
+            }
         }
 
     }

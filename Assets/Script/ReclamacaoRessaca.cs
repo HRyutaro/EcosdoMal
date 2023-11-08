@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class ReclamacaoRessaca : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public string text;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         
@@ -20,7 +21,7 @@ public class ReclamacaoRessaca : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            GameController.instance.ShowInformacao("Ai minha cabeça, acho que bebi demais ontem, melhor começar o trabalho");
+            GameController.instance.ShowInformacao(text);
         }
     }
 }

@@ -7,6 +7,7 @@ public class MachadoItem : MonoBehaviour
     bool inferrujado = true;
     public AudioSource somAfiar;
     public GameObject checklist;
+    public int afiado;
     void Start()
     {
         
@@ -17,7 +18,6 @@ public class MachadoItem : MonoBehaviour
     {
         if(inferrujado == false)
         {
-            inventario.machadoBloq = false;
             GameController.instance.task = 4;
             checklist.SetActive(true);
             Destroy(gameObject, 1);
@@ -28,8 +28,16 @@ public class MachadoItem : MonoBehaviour
     {
         if (inferrujado == true)
         {
-            somAfiar.Play();
-            inferrujado = false;
+            if(afiado <= 2)
+            {
+                somAfiar.Play();
+                afiado += 1;
+            }
+            else
+            {
+                somAfiar.Play();
+                inferrujado = false;
+            }
         }
     }
 }

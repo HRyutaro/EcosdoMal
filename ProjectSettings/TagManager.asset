@@ -30,6 +30,9 @@ TagManager:
   - Machado
   - Vassoura
   - sujeira
+  - Arma
+  - Mae
+  - Labirinto
   layers:
   - Default
   - TransparentFX

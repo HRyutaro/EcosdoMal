@@ -16,17 +16,17 @@ public class Assombracao : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameController.instance.task == numeroTask)
+        if (GameController.instance.task >= numeroTask)
         {
             assombracao.SetActive(true);
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player") && GameController.instance.task == numeroTask)
+        if(other.CompareTag("Player") && GameController.instance.task >= numeroTask)
         {
             som.Play();
-            Destroy(objeto);
+            Destroy(objeto,2);
         }
     }
 }
