@@ -22,6 +22,7 @@ public class vassouraItem : MonoBehaviour
             vassouraChao.SetActive(false);
             CamConfig.comVassoura = true;
             Player.comVassoura = true;
+            Player.cadernoNaMao = false;
             Destroy(gameObject);
         }
     }

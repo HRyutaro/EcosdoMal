@@ -13,7 +13,7 @@ public class Cano : MonoBehaviour
         outline.GetComponent<Outline>();   
     }
 
-    // Update is called once per frame
+
     public void Update()
     {
         if(giradas == 500)

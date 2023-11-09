@@ -8,7 +8,7 @@ public class taskJornal : MonoBehaviour
 
     void Start()
     {
-        
+        pegou = false;
     }
 
     // Update is called once per frame

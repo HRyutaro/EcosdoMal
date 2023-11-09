@@ -54,12 +54,13 @@ public class AssombracaoCorrendo : MonoBehaviour
     IEnumerator apagao()
     {
         telaPreta.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         grito.Play();
-        telaPreta.SetActive(false);
         mesh.SetActive(false);
         morta.SetActive(true);
         GameController.instance.task = 5;
+        yield return new WaitForSeconds(2f);
+        telaPreta.SetActive(false);
         yield return new WaitForSeconds(3f);
         GameController.instance.ShowInformacao("'Estou alucinando de novo, uma bebida é isso que eu preciso'");
         Destroy(gameObject);

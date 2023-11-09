@@ -23,8 +23,10 @@ public class CamConfig : MonoBehaviour
     public float smoothCoefx = 0.005f;
     public float smoothCoefy = 0.005f;
     public float range = 5;
+    public float offsetDistance = 1.0f;
 
     public AudioSource sound;
+    public AudioSource canoRangendo;
 
     public static bool comVassoura;
     public static bool comArma;
@@ -91,8 +93,9 @@ public class CamConfig : MonoBehaviour
     void look()
     {
         Vector3 direction = Vector3.forward;
-        Ray theRay = new Ray(transform.position, transform.TransformDirection(direction * range));
-        Debug.DrawRay(transform.position, transform.TransformDirection(direction * range),Color.red);
+        Vector3 startOffset = transform.forward * offsetDistance;
+        Ray theRay = new Ray(transform.position + startOffset, transform.TransformDirection(direction * range));
+        Debug.DrawRay(transform.position + startOffset, transform.TransformDirection(direction * range),Color.red);
 
         if(Physics.Raycast(theRay, out RaycastHit hit, range))
         {
@@ -109,11 +112,11 @@ public class CamConfig : MonoBehaviour
             {
                 outlineObject.Select();
                 //Debug.Log(outlineObject.name);
-                if(outlineObject.CompareTag("fosforo"))
+                if (outlineObject.CompareTag("fosforo"))
                 {
-                    if(Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
-                        if(inventario.fosforo <= 4)
+                        if (inventario.fosforo <= 4)
                         {
                             inventario.fosforo++;
                             Destroy(outlineObject.gameObject);
@@ -156,20 +159,21 @@ public class CamConfig : MonoBehaviour
                         luz2.LigaDesliga();
                     }
                 }
-                else if(outlineObject.CompareTag("Cama"))
+                else if (outlineObject.CompareTag("Cama"))
                 {
                     if (Input.GetKeyDown(KeyCode.E) && GameController.instance.task == 4)
                     {
+                        GameController.instance.task = 1;
                         SceneManager.LoadScene("Dia2");
                     }
                 }
                 else if (outlineObject.CompareTag("alavanca"))
                 {
-                    if(Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
-                        if(GameController.instance.Dia <= 4)
+                        if (GameController.instance.Dia <= 4)
                         {
-                            if(CaixaDeluz.lightout == true)
+                            if (CaixaDeluz.lightout == true)
                             {
                                 CaixaDeluz.lightout = false;
                             }
@@ -178,7 +182,7 @@ public class CamConfig : MonoBehaviour
                                 CaixaDeluz.lightout = true;
                             }
                         }
-                        else if(GameController.instance.Dia == 5)
+                        else if (GameController.instance.Dia == 5)
                         {
                             GameController.instance.ShowInformacao("'Esta emperrado, não tem jeito, melhor eu pegar o machado e resolver isso'");
                             task1dia5.tentouAtivar = true;
@@ -205,9 +209,13 @@ public class CamConfig : MonoBehaviour
                 else if (outlineObject.CompareTag("Gas"))
                 {
                     item = hit.transform.GetComponent<item>();
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E) && GameController.instance.task == 2)
                     {
                         item.togglePegar();
+                    }
+                    else if(Input.GetKeyDown(KeyCode.E) && GameController.instance.task != 2)
+                    {
+                        GameController.instance.ShowInformacao("Primeiro as noticias depois o trabalho");
                     }
                 }
                 else if (outlineObject.CompareTag("GasChao"))
@@ -220,24 +228,36 @@ public class CamConfig : MonoBehaviour
                 }
                 else if (outlineObject.CompareTag("Cano"))
                 {
-                    if(GameController.instance.task == 3 && Input.GetKey(KeyCode.E) && Cano.giradas <= 499)
+
+                    if (GameController.instance.task == 3 && Input.GetKey(KeyCode.E) && Cano.giradas <= 499)
                     {
                         Cano.giradas += 1f;
                         hit.transform.Rotate(new Vector3(0, 1, 0));
-
+                        if (!canoRangendo.isPlaying)
+                        {
+                            canoRangendo.Play();
+                        }
+                    }
+                    else
+                    {
+                        if (canoRangendo.isPlaying)
+                        {
+                            canoRangendo.Stop();
+                        }
                     }
                 }
                 else if (outlineObject.CompareTag("Beer"))
                 {
-                    if (GameController.instance.task == GameController.instance.tarefas.Length && Input.GetKey(KeyCode.E))
+                    if (GameController.instance.task == GameController.instance.tarefas.Length && Input.GetKey(KeyCode.E) && GameController.instance.Dia != 5)
                     {
                         Player.parado = true;
-                        if(GameController.days == 2)
+                        GameController.instance.task = 1;
+                        if (GameController.days == 2)
                         {
-                            GameController.instance.ShowInformacao("Que dia, precisava dessa bebida, devo estar vendo coisas mas deve ser so cansaço");
-                            Invoke("TrocarCena", 4f);
+                            GameController.instance.ShowInformacao("Que dia, precisava dessa bebida, devo estar vendo coisas, mas deve ser so cansaço");
+                            Invoke("TrocarCena", 5f);
                         }
-                        else if(GameController.days == 3)
+                        else if (GameController.days == 3)
                         {
                             GameController.instance.ShowInformacao("Estou comecando a alucinar, preciso beber pra relaxar");
                             Invoke("TrocarCena2", 4f);
@@ -251,9 +271,9 @@ public class CamConfig : MonoBehaviour
                         {
                             sound.Play();
                         }
-                       
+
                     }
-                    else if(Input.GetKey(KeyCode.E))
+                    else if (GameController.instance.task < GameController.instance.tarefas.Length && Input.GetKey(KeyCode.E) && GameController.instance.Dia != 5)
                     {
                         GameController.instance.ShowInformacao("Deve terminar minhas tarefas antes");
                     }
@@ -262,9 +282,9 @@ public class CamConfig : MonoBehaviour
                 {
                     if (Input.GetKey(KeyCode.E))
                     {
-                        if(GameController.instance.task == 2)
+                        if (GameController.instance.task == 2)
                         {
-                            if(Pia.giros > 499 && Input.GetKeyDown(KeyCode.E))
+                            if (Pia.giros > 499 && Input.GetKeyDown(KeyCode.E))
                             {
                                 Pia.tirou = true;
                                 outlineObject.Deselect();
@@ -273,13 +293,24 @@ public class CamConfig : MonoBehaviour
                             {
                                 Pia.giros += 1;
                                 hit.transform.Rotate(new Vector3(0, 1, 0));
+                                if (!canoRangendo.isPlaying)
+                                {
+                                    canoRangendo.Play();
+                                }
                             }
                         }
                         else
                         {
                             GameController.instance.ShowInformacao("Vamos ler o jornal antes de começar as tarefas");
                         }
-
+                    }
+                    else
+                    {
+                        if (canoRangendo.isPlaying)
+                        {
+                            canoRangendo.Stop();
+                        }
+                        
                     }
                 }
                 else if (outlineObject.CompareTag("roscaPia1"))
@@ -295,6 +326,17 @@ public class CamConfig : MonoBehaviour
                         {
                             Pia.giros1 += 1;
                             hit.transform.Rotate(new Vector3(0, 1, 0));
+                            if (!canoRangendo.isPlaying)
+                            {
+                                canoRangendo.Play();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (canoRangendo.isPlaying)
+                        {
+                            canoRangendo.Stop();
                         }
                     }
                 }
@@ -302,11 +344,19 @@ public class CamConfig : MonoBehaviour
                 {
                     if (GameController.instance.task == 2 && Input.GetKey(KeyCode.E))
                     {
-                        if(Pia.podeTirar2 == true)
+                        if (Pia.podeTirar2 == true)
                         {
                             Pia.tirou2 = true;
                             outlineObject.Deselect();
                         }
+                        else
+                        {
+                            GameController.instance.ShowInformacao("Tire as outras partes primeiro");
+                        }
+                    }
+                    else if(GameController.instance.task != 2 && Input.GetKey(KeyCode.E))
+                    {
+                        GameController.instance.ShowInformacao("Vamos ler o jornal antes de começar as tarefas");
                     }
                 }
                 else if (outlineObject.CompareTag("localroscaPiaC"))
@@ -341,8 +391,20 @@ public class CamConfig : MonoBehaviour
                         {
                             Pia.girosC += 1;
                             hit.transform.Rotate(new Vector3(0, 1, 0));
+                            if (!canoRangendo.isPlaying)
+                            {
+                                canoRangendo.Play();
+                            }
                         }
                     }
+                    else
+                    {
+                        if (canoRangendo.isPlaying)
+                        {
+                            canoRangendo.Stop();
+                        }
+                    }
+
                 }
                 else if (outlineObject.CompareTag("roscaPiaC1"))
                 {
@@ -352,6 +414,24 @@ public class CamConfig : MonoBehaviour
                         {
                             Pia.girosC1 += 1;
                             hit.transform.Rotate(new Vector3(0, 1, 0));
+                            if (!canoRangendo.isPlaying)
+                            {
+                                canoRangendo.Play();
+                            }
+                        }
+                        else
+                        {
+                            if (canoRangendo.isPlaying)
+                            {
+                                canoRangendo.Stop();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (canoRangendo.isPlaying)
+                        {
+                            canoRangendo.Stop();
                         }
                     }
                 }
@@ -360,7 +440,7 @@ public class CamConfig : MonoBehaviour
                     machadoItem = hit.transform.GetComponent<MachadoItem>();
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        if(GameController.instance.Dia == 5 && GameController.instance.task == 2)
+                        if (GameController.instance.Dia == 5 && GameController.instance.task == 2)
                         {
                             MachadoDia55.pegou = true;
                         }
@@ -368,7 +448,7 @@ public class CamConfig : MonoBehaviour
                         {
                             GameController.instance.ShowInformacao("Primeiro devo ligar as luzes");
                         }
-                        else if(GameController.instance.task == 3 && GameController.instance.Dia <= 4)
+                        else if (GameController.instance.task == 3 && GameController.instance.Dia <= 4)
                         {
                             machadoItem.afiar();
                         }
@@ -378,17 +458,17 @@ public class CamConfig : MonoBehaviour
                         }
                     }
                 }
-                else if(outlineObject.CompareTag("Vassoura"))
+                else if (outlineObject.CompareTag("Vassoura"))
                 {
                     vassoura = hit.transform.GetComponent<vassouraItem>();
-                    if(Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
                         vassoura.pegar();
                     }
                 }
-                else if(outlineObject.CompareTag("sujeira"))
+                else if (outlineObject.CompareTag("sujeira"))
                 {
-                    if (Input.GetKeyDown(KeyCode.E)&& comVassoura == true)
+                    if (Input.GetKeyDown(KeyCode.E) && comVassoura == true)
                     {
                         SujeiraControl.sujeiras += 1;
                         Destroy(outlineObject.gameObject);
@@ -410,7 +490,7 @@ public class CamConfig : MonoBehaviour
                 {
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        if(GameController.instance.task == 4)
+                        if (GameController.instance.task == 4)
                         {
                             SceneManager.LoadScene("Labirinto");
                         }

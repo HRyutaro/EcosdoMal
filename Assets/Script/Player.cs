@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
 
     [Header("Caderno")]
     public GameObject caderno;
-    bool cadernoNaMao;
+    public static bool cadernoNaMao;
 
     [Header("Vassoura")]
     public static bool comVassoura;
@@ -65,7 +65,15 @@ public class Player : MonoBehaviour
         bateriaAtual = bateriaMax;
         if(GameController.days == 6)
         {
-            comMachado = true;
+            comArma = true;
+            comMachado = false;
+            comVassoura = false;
+        }
+        else
+        {
+            comArma = false;
+            comMachado = false;
+            comVassoura = false;
         }
     }
 
@@ -107,6 +115,7 @@ public class Player : MonoBehaviour
         {
             Arma.SetActive(false);
         }
+
     }
 
     void animacao()

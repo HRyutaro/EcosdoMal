@@ -24,6 +24,7 @@ public class ArmaChao : MonoBehaviour
             ArmaNoChao.SetActive(false);
             CamConfig.comArma = true;
             Player.comArma = true;
+            Player.cadernoNaMao = false;
             GameController.instance.task = 4;
             terror.Play();
             Destroy(gameObject);

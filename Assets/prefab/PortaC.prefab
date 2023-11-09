@@ -11,10 +11,6 @@ GameObject:
   - component: {fileID: 8063938632232851100}
   - component: {fileID: 8063938632232851102}
   - component: {fileID: 8063938632232851103}
-  - component: {fileID: 8063938632232851098}
-  - component: {fileID: 8063938632232851099}
-  - component: {fileID: 8063938632232851096}
-  - component: {fileID: 8063938632232851097}
   - component: {fileID: 7821277358611021981}
   m_Layer: 0
   m_Name: macaneta01
@@ -89,65 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8063938632232851098
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8063938632232851101}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.36488888, y: 0.36757612, z: 0.43976468}
-  m_Center: {x: 0.052431926, y: 0.019735217, z: 0.1885573}
---- !u!114 &8063938632232851099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8063938632232851101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 1, g: 0.78039217, b: 0, a: 1}
-  outlineWidth: 0
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
---- !u!114 &8063938632232851096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8063938632232851101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa6dbac2fb532554ea6a87f17c38be79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8063938632232851097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8063938632232851101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3945bc4e47157b46ab5a996b7c8f82d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 8063938632944323842}
-  anim2: {fileID: 8063938633110800429}
-  somAbrir: {fileID: 6064470065559725882}
-  somFechado: {fileID: 7821277358611021981}
 --- !u!82 &7821277358611021981
 AudioSource:
   m_ObjectHideFlags: 0
@@ -447,9 +384,12 @@ GameObject:
   - component: {fileID: 8063938633110800429}
   - component: {fileID: 8063938633110800428}
   - component: {fileID: 6064470065559725882}
+  - component: {fileID: 3514223568033156425}
+  - component: {fileID: 2612939883972938578}
+  - component: {fileID: 4510306190994158934}
   m_Layer: 0
   m_Name: porta
-  m_TagString: Untagged
+  m_TagString: Porta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -650,3 +590,49 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3514223568033156425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8063938633110800433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 0
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &2612939883972938578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8063938633110800433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa6dbac2fb532554ea6a87f17c38be79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4510306190994158934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8063938633110800433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3945bc4e47157b46ab5a996b7c8f82d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 8063938632944323842}
+  anim2: {fileID: 8063938633110800429}
+  somAbrir: {fileID: 6064470065559725882}
+  somFechado: {fileID: 7821277358611021981}

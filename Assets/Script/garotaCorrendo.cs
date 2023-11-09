@@ -7,6 +7,7 @@ public class garotaCorrendo : MonoBehaviour
     public float velocidade = 15;
     public bool correr;
     public GameObject garota;
+    public int task = 4;
 
     void Start()
     {
@@ -27,7 +28,7 @@ public class garotaCorrendo : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.CompareTag("Player") && GameController.instance.task == 4)
+        if (other.CompareTag("Player") && GameController.instance.task == task)
         {
             correr = true;
         }

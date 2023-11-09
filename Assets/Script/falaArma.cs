@@ -22,6 +22,7 @@ public class falaArma : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             GameController.instance.ShowInformacao(texto);
+            Destroy(gameObject);
         }
     }
 }

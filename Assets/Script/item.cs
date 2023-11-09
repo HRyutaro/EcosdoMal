@@ -19,19 +19,12 @@ public class item : MonoBehaviour
     {
         if (podePegar == true)
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            if (GameController.instance.task == 2)
             {
-                if(GameController.instance.task == 2)
-                {
-                    Player.comItem = true;
-                    itemLocal.SetActive(true);
-                    itemMao.SetActive(true);
-                    Destroy(gameObject);
-                }
-                else if(GameController.instance.task == 1)
-                {
-                    GameController.instance.ShowInformacao("Primeiro as noticias depois o trabalho");
-                }
+                Player.comItem = true;
+                itemLocal.SetActive(true);
+                itemMao.SetActive(true);
+                Destroy(gameObject);
             }
         }
     }

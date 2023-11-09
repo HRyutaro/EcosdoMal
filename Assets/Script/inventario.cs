@@ -6,28 +6,18 @@ using UnityEngine.UI;
 public class inventario : MonoBehaviour
 {
     public static int fosforo;
-    public GameObject inv;
-    bool showInvetario;
-    public Image[] item;
-
-
+    public Text textoHud;
 
     void Start()
     {
-        item[0].enabled = false;
-        item[1].enabled = false;
-        item[2].enabled = false;
-        item[3].enabled = false;
-        item[4].enabled = false;
 
 
     }
 
     void Update()
     {
-        toggleInventario();
-        inventarioControl();
         Usarfosforo();
+        AttHudFosforo();
     }
     void Usarfosforo()
     {
@@ -40,74 +30,8 @@ public class inventario : MonoBehaviour
             }
         }
     }
-
-    void inventarioControl()
+    void AttHudFosforo()
     {
-        if (fosforo == 0)
-        {
-            item[0].enabled = false;
-            item[1].enabled = false;
-            item[2].enabled = false;
-            item[3].enabled = false;
-            item[4].enabled = false;
-        }
-        else if (fosforo == 1)
-        {
-            item[0].enabled = true;
-            item[1].enabled = false;
-            item[2].enabled = false;
-            item[3].enabled = false;
-            item[4].enabled = false;
-        }
-        else if (fosforo == 2)
-        {
-            item[0].enabled = true;
-            item[1].enabled = true;
-            item[2].enabled = false;
-            item[3].enabled = false;
-            item[4].enabled = false;
-        }
-        else if (fosforo == 3)
-        {
-            item[0].enabled = true;
-            item[1].enabled = true;
-            item[2].enabled = true;
-            item[3].enabled = false;
-            item[4].enabled = false;
-        }
-        else if (fosforo == 4)
-        {
-            item[0].enabled = true;
-            item[1].enabled = true;
-            item[2].enabled = true;
-            item[3].enabled = true;
-            item[4].enabled = false;
-        }
-        else if (fosforo == 5)
-        {
-            item[0].enabled = true;
-            item[1].enabled = true;
-            item[2].enabled = true;
-            item[3].enabled = true;
-            item[4].enabled = true;
-        }
-        
+        textoHud.text = fosforo.ToString();
     }
-
-    void toggleInventario()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            showInvetario = !showInvetario;
-        }
-        if (showInvetario == true)
-        {
-            inv.SetActive(true);
-        }
-        else
-        {
-            inv.SetActive(false);
-        }
-    }
-
 }

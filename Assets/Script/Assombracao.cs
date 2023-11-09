@@ -26,7 +26,7 @@ public class Assombracao : MonoBehaviour
         if(other.CompareTag("Player") && GameController.instance.task >= numeroTask)
         {
             som.Play();
-            Destroy(objeto,2);
+            Destroy(objeto,1);
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogoControl : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class DialogoControl : MonoBehaviour
     private int index;
     public static bool pularDialogoControl;
 
+    public AudioSource grito;
+    public AudioSource shotgunSom;
+
+    public GameObject telaPreta;
 
     void Start()
     {
@@ -85,9 +90,30 @@ public class DialogoControl : MonoBehaviour
                     criancaMorte cM = cMorte.GetComponent<criancaMorte>();
                     cM.acabouDialogo();
                 }
+                else if (GameController.days == 6)
+                {
+                    telaPreta.SetActive(true);
+                    shotgunSom.Play();
+                    Invoke("somGrito", 2f);
+                    Invoke("som12", 3f);
+                    Invoke("TrocarCena", 5f);
+                }
             }
 
         }
     }
 
+    void somGrito()
+    {
+        grito.Play();
+    }
+    void som12()
+    {
+        shotgunSom.Play();
+    }
+
+    void TrocarCena()
+    {
+        SceneManager.LoadScene("Fim");
+    }
 }

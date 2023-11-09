@@ -37,15 +37,12 @@ public class task2 : MonoBehaviour
             {
                 lugares -= 1;
                 corte.SetActive(true);
-                Destroy(gameObject);
-                Destroy(texto);
+
             }
             else
             {
                 GameController.instance.task = 4;
                 corte.SetActive(true);
-                Destroy(texto);
-                Destroy(gameObject);
             }
         }
     }

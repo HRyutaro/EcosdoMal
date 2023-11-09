@@ -31,16 +31,18 @@ public class criancaMorte : MonoBehaviour
     IEnumerator apagao()
     {
         telaPetra.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         grito.Play();
+        yield return new WaitForSeconds(2f);
         telaPetra.SetActive(false);
         mesh.enabled = false;
         morta.SetActive(true);
+        Player.comMachado = true;
+        Player.cadernoNaMao = false;
+        machadoMao.SetActive(true);
         GameController.instance.task = 6;
         yield return new WaitForSeconds(3f);
         GameController.instance.ShowInformacao("Isso é...? Não não não, são só alucinações, estou bem cansado, quero ir beber um pouco");
-        Player.comMachado = true;
-        machadoMao.SetActive(true);
         Destroy(gameObject);
     }
 }
