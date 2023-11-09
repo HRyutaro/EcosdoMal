@@ -553,10 +553,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 4.9566264
+  m_Radius: 4.365806
   m_Height: 18.4716
   m_Direction: 1
-  m_Center: {x: 2.744151, y: 0, z: -1.7124205}
+  m_Center: {x: 1.9644551, y: 0, z: -0.17992404}
 --- !u!114 &209931715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -573,6 +573,7 @@ MonoBehaviour:
   correr: 0
   garota: {fileID: 2094933432}
   task: 1
+  grito: {fileID: 1926918861}
 --- !u!4 &209931716
 Transform:
   m_ObjectHideFlags: 0
@@ -1225,9 +1226,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 3
   m_MinValue: 0
-  m_MaxValue: 30
+  m_MaxValue: 50
   m_WholeNumbers: 0
-  m_Value: 30
+  m_Value: 50
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3238,7 +3239,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.3764706, g: 0.3764706, b: 0.3764706, a: 1}
   m_Intensity: 2
-  m_Range: 3.8
+  m_Range: 13.5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -3449,7 +3450,6 @@ GameObject:
   - component: {fileID: 823653988}
   - component: {fileID: 823653991}
   - component: {fileID: 823653990}
-  - component: {fileID: 823653989}
   m_Layer: 0
   m_Name: Garota
   m_TagString: Untagged
@@ -3472,19 +3472,6 @@ Transform:
   m_Father: {fileID: 209931716}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 55.066, z: 0}
---- !u!135 &823653989
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 823653987}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 23.47969
-  m_Center: {x: 12.318063, y: 4.44022, z: -6.06208}
 --- !u!23 &823653990
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6177,8 +6164,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.7631228, y: 4.1996503, z: 7.126255}
-  m_Center: {x: 2.72116, y: 1.5998251, z: -2.345716}
+  m_Size: {x: 2.420294, y: 4.1996503, z: 4.608629}
+  m_Center: {x: 0.553775, y: 1.5998251, z: -1.0869036}
 --- !u!114 &1580894557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6195,6 +6182,7 @@ MonoBehaviour:
   correr: 0
   garota: {fileID: 2024578593}
   task: 1
+  grito: {fileID: 1926918861}
 --- !u!4 &1580894558
 Transform:
   m_ObjectHideFlags: 0
@@ -6302,7 +6290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1698989069
 Transform:
   m_ObjectHideFlags: 0
@@ -6350,8 +6338,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.514145, y: 3.2818613, z: 12.661936}
-  m_Center: {x: -3.6747742, y: 1.402288, z: -2.1664934}
+  m_Size: {x: 3.421463, y: 3.2818613, z: 7.138732}
+  m_Center: {x: -2.6284332, y: 1.402288, z: -2.1976743}
 --- !u!114 &1712247596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6368,6 +6356,7 @@ MonoBehaviour:
   correr: 0
   garota: {fileID: 209931713}
   task: 1
+  grito: {fileID: 1926918861}
 --- !u!4 &1712247597
 Transform:
   m_ObjectHideFlags: 0
@@ -6514,6 +6503,7 @@ MonoBehaviour:
   correr: 0
   garota: {fileID: 1580894555}
   task: 1
+  grito: {fileID: 1926918861}
 --- !u!4 &1734817500
 Transform:
   m_ObjectHideFlags: 0
@@ -6541,7 +6531,6 @@ GameObject:
   - component: {fileID: 1829713961}
   - component: {fileID: 1829713964}
   - component: {fileID: 1829713963}
-  - component: {fileID: 1829713962}
   m_Layer: 0
   m_Name: Garota
   m_TagString: Untagged
@@ -6564,19 +6553,6 @@ Transform:
   m_Father: {fileID: 2094933435}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 55.066, z: 0}
---- !u!135 &1829713962
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1829713960}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 23.47969
-  m_Center: {x: 12.318063, y: 4.44022, z: -6.06208}
 --- !u!23 &1829713963
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7106,6 +7082,134 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1942042534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1942042536}
+  - component: {fileID: 1942042535}
+  m_Layer: 0
+  m_Name: Somrangendo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1942042535
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942042534}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 44bb64c168eb4dc4ba419d5ae6be0be1, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1942042536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942042534}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -67.4081, y: 8.31634, z: -3.5537548}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 32
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1942337758
 GameObject:
   m_ObjectHideFlags: 0
@@ -7283,7 +7387,6 @@ GameObject:
   - component: {fileID: 1950486694}
   - component: {fileID: 1950486697}
   - component: {fileID: 1950486696}
-  - component: {fileID: 1950486695}
   m_Layer: 0
   m_Name: Garota
   m_TagString: Untagged
@@ -7306,19 +7409,6 @@ Transform:
   m_Father: {fileID: 1712247597}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 55.066, z: 0}
---- !u!135 &1950486695
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1950486693}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 23.47969
-  m_Center: {x: 12.318063, y: 4.44022, z: -6.06208}
 --- !u!23 &1950486696
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7627,6 +7717,7 @@ MonoBehaviour:
   task: 0
   isPause: 0
   Dia: 6
+  modoDeusNextLevel: Fim
 --- !u!4 &1991234103
 Transform:
   m_ObjectHideFlags: 0
@@ -8306,12 +8397,13 @@ MonoBehaviour:
   gravity: 0
   lanternaObjeto: {fileID: 1698989068}
   lanterna: {fileID: 345338343}
-  bateriaMax: 30
+  bateriaMax: 50
   imagemBateria: {fileID: 392886303}
   caderno: {fileID: 1440853378}
   vassoura: {fileID: 1489269719}
   machado: {fileID: 1324092144}
   Arma: {fileID: 1239364615}
+  modoDeus: 1
 --- !u!143 &2051906007
 CharacterController:
   m_ObjectHideFlags: 0
@@ -8600,8 +8692,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9.9222355, y: 3.4783182, z: 4.1238637}
-  m_Center: {x: 4.4611177, y: 1.2391591, z: -0.8445084}
+  m_Size: {x: 5.180815, y: 3.4783182, z: 4.1238637}
+  m_Center: {x: 2.0904078, y: 1.2391591, z: -0.8445084}
 --- !u!114 &2094933434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8618,6 +8710,7 @@ MonoBehaviour:
   correr: 0
   garota: {fileID: 2139358775}
   task: 1
+  grito: {fileID: 1926918861}
 --- !u!4 &2094933435
 Transform:
   m_ObjectHideFlags: 0
@@ -9029,6 +9122,7 @@ MonoBehaviour:
   correr: 0
   garota: {fileID: 1734817497}
   task: 1
+  grito: {fileID: 1926918861}
 --- !u!4 &2139358778
 Transform:
   m_ObjectHideFlags: 0

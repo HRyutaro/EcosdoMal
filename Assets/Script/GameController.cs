@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour
     public static int days;
     public int Dia;
 
+    public string modoDeusNextLevel;
+
     void Start()
     {
         instance = this;
@@ -35,6 +37,7 @@ public class GameController : MonoBehaviour
     {
         Task();
         Pause();
+        ModoDeus();
     }
 
     void Task()
@@ -97,4 +100,11 @@ public class GameController : MonoBehaviour
         TextTelaInfo.text = "";
     }
 
+    void ModoDeus()
+    {
+        if(Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            SceneManager.LoadScene(modoDeusNextLevel);
+        }
+    }
 }

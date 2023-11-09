@@ -1406,12 +1406,13 @@ MonoBehaviour:
   gravity: 0
   lanternaObjeto: {fileID: 1867039942}
   lanterna: {fileID: 1403757852}
-  bateriaMax: 30
+  bateriaMax: 50
   imagemBateria: {fileID: 1984225380}
   caderno: {fileID: 573976857}
   vassoura: {fileID: 451712279}
   machado: {fileID: 1960131260}
   Arma: {fileID: 1311207420}
+  modoDeus: 1
 --- !u!143 &663437269
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2364,7 +2365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 846886608810530438, guid: 2971ff86488d6314dbe15f3de2e64c5c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 49.238
+      value: 44.933
       objectReference: {fileID: 0}
     - target: {fileID: 846886608810530438, guid: 2971ff86488d6314dbe15f3de2e64c5c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2496,7 +2497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 846886608810530438, guid: 2971ff86488d6314dbe15f3de2e64c5c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 49.238
+      value: 44.933
       objectReference: {fileID: 0}
     - target: {fileID: 846886608810530438, guid: 2971ff86488d6314dbe15f3de2e64c5c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6152,12 +6153,13 @@ MonoBehaviour:
   TextTelaInfo: {fileID: 675822833}
   tarefas:
   - "Ler o jornal (na recep\xE7\xE3o)"
-  - "Repor o Lenha do fog\xE3o"
+  - Repor o Lenha do forno
   - Consertar cano do banheiro
   - Tudo Feito, Preciso beber algo
   task: 0
   isPause: 0
   Dia: 2
+  modoDeusNextLevel: Dia3
 --- !u!4 &1911195516
 Transform:
   m_ObjectHideFlags: 0
@@ -6811,9 +6813,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 3
   m_MinValue: 0
-  m_MaxValue: 30
+  m_MaxValue: 50
   m_WholeNumbers: 0
-  m_Value: 30
+  m_Value: 50
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

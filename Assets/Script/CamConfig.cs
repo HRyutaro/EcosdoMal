@@ -267,15 +267,12 @@ public class CamConfig : MonoBehaviour
                             GameController.instance.ShowInformacao("Alucinação, alucinação e tudo alucinação, se acalma");
                             Invoke("TrocarCena3", 4f);
                         }
+                        
                         if (!sound.isPlaying)
                         {
                             sound.Play();
                         }
 
-                    }
-                    else if (GameController.instance.task < GameController.instance.tarefas.Length && Input.GetKey(KeyCode.E) && GameController.instance.Dia != 5)
-                    {
-                        GameController.instance.ShowInformacao("Deve terminar minhas tarefas antes");
                     }
                 }
                 else if (outlineObject.CompareTag("roscaPia"))
@@ -391,17 +388,6 @@ public class CamConfig : MonoBehaviour
                         {
                             Pia.girosC += 1;
                             hit.transform.Rotate(new Vector3(0, 1, 0));
-                            if (!canoRangendo.isPlaying)
-                            {
-                                canoRangendo.Play();
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (canoRangendo.isPlaying)
-                        {
-                            canoRangendo.Stop();
                         }
                     }
 
@@ -414,24 +400,6 @@ public class CamConfig : MonoBehaviour
                         {
                             Pia.girosC1 += 1;
                             hit.transform.Rotate(new Vector3(0, 1, 0));
-                            if (!canoRangendo.isPlaying)
-                            {
-                                canoRangendo.Play();
-                            }
-                        }
-                        else
-                        {
-                            if (canoRangendo.isPlaying)
-                            {
-                                canoRangendo.Stop();
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (canoRangendo.isPlaying)
-                        {
-                            canoRangendo.Stop();
                         }
                     }
                 }
@@ -517,6 +485,7 @@ public class CamConfig : MonoBehaviour
             if (outlineObject != null)
             {
                 outlineObject.Deselect();
+                canoRangendo.Stop();
             }
             outlineObject = null;
         }

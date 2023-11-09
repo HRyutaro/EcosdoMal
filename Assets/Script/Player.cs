@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public Animator anim;
     public float forwardSpeed = 5f;
     public float atualforwardSpeed;
-    public float strafeSpeed = 5f;
+    public float strafeSpeed = 3f;
     public float atualstrafeSpeed;
     public static bool parado;
     bool agachado;
@@ -51,6 +51,8 @@ public class Player : MonoBehaviour
     [Header("Arma")]
     public static bool comArma;
     public GameObject Arma;
+
+    public bool modoDeus;
 
     void Start()
     {
@@ -197,7 +199,7 @@ public class Player : MonoBehaviour
         if (lanterna.enabled && bateriaAtual > 0)
         {
             // Reduz a bateria com o tempo (ajuste o valor como desejado)
-            if(parado == false)
+            if(parado == false && modoDeus == false)
             {
                 bateriaAtual -= Time.deltaTime;
             }

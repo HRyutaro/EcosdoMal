@@ -5019,7 +5019,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -6326,9 +6326,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 3
   m_MinValue: 0
-  m_MaxValue: 30
+  m_MaxValue: 50
   m_WholeNumbers: 0
-  m_Value: 30
+  m_Value: 50
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -11691,6 +11691,7 @@ MonoBehaviour:
   task: 0
   isPause: 0
   Dia: 3
+  modoDeusNextLevel: Dia4
 --- !u!4 &1528547610
 Transform:
   m_ObjectHideFlags: 0
@@ -11725,7 +11726,7 @@ MonoBehaviour:
   passarText: {fileID: 1493810773}
   typingSpeed: 0
   proxSprite: 0
-  grito: {fileID: 0}
+  grito: {fileID: 1198327134}
   shotgunSom: {fileID: 0}
   telaPreta: {fileID: 0}
 --- !u!82 &1528547612
@@ -14703,12 +14704,13 @@ MonoBehaviour:
   gravity: 0
   lanternaObjeto: {fileID: 1127976509}
   lanterna: {fileID: 1147364216}
-  bateriaMax: 30
+  bateriaMax: 50
   imagemBateria: {fileID: 897270470}
   caderno: {fileID: 1785003540}
   vassoura: {fileID: 137728689}
   machado: {fileID: 2848929321081017484}
   Arma: {fileID: 1231786060}
+  modoDeus: 1
 --- !u!143 &1958742770
 CharacterController:
   m_ObjectHideFlags: 0
@@ -16667,8 +16669,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.242567, y: 1.2269306, z: 2.5697703}
-  m_Center: {x: 0.048800007, y: 0.11346484, z: 0.6785355}
+  m_Size: {x: 10.242567, y: 1.2269306, z: 2.1166315}
+  m_Center: {x: 0.048800007, y: 0.11346484, z: 0.90509814}
 --- !u!23 &2038767354
 MeshRenderer:
   m_ObjectHideFlags: 0

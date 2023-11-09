@@ -9,6 +9,7 @@ public class garotaCorrendo : MonoBehaviour
     public GameObject garota;
     public int task = 4;
 
+    public AudioSource grito;
     void Start()
     {
         
@@ -21,6 +22,7 @@ public class garotaCorrendo : MonoBehaviour
         {
             animacao();
             garota.SetActive(true);
+            grito.Play();
             Destroy(gameObject, 3);
         }
     }

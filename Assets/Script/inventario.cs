@@ -25,7 +25,7 @@ public class inventario : MonoBehaviour
         {
             if(fosforo >= 1)
             {
-                Player.bateriaAtual += 10;
+                Player.bateriaAtual += 20;
                 fosforo -= 1;
             }
         }
