@@ -9,6 +9,13 @@ public class PauseMenu : MonoBehaviour
     public GameObject pausePanel;
     public string cena;
 
+     public void SairGame()
+    {
+        //Mensagem no Unity de saida do jogo
+
+        Debug.Log("Sair do Jogo");
+        Application.Quit();
+    }
 
 void Start()
 {
@@ -41,7 +48,14 @@ void Start()
             Cursor.visible = true;
         }
     }
-    
-    //Arrumar Tela de Pause
+
+    public void ResumeGame()
+    {
+            isPaused = false;
+            Time.timeScale = 1f;
+            pausePanel.SetActive(false);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = false;
+    }
 
 }
