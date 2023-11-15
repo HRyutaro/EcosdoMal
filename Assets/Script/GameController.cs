@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour
     {
         Task();
         Pause();
-        ModoDeus();
+        //ModoDeus();
     }
 
     void Task()
