@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    [SerializeField] private GameObject painelMenuInicial;
+    [SerializeField] private GameObject painelOpcoes;
     private bool isPaused;
     public GameObject pausePanel;
     public string cena;
@@ -56,6 +58,17 @@ void Start()
             pausePanel.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = false;
+    }
+
+    public void AbrirOpcoes()
+    {
+        painelMenuInicial.SetActive(false);
+        painelOpcoes.SetActive(true);
+    }
+    public void FecharOpcoes()
+    {
+        painelOpcoes.SetActive(false);
+        painelMenuInicial.SetActive(true);
     }
 
 }
