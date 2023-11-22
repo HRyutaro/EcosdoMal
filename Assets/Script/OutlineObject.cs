@@ -20,10 +20,12 @@ public class OutlineObject : MonoBehaviour
     public void Select()
     {
         outline.OutlineWidth = 4;
+        outline.OutlineColor = Color.green;
     }
 
     public void Deselect()
     {
-        outline.OutlineWidth = 0;
+        outline.OutlineWidth = 3;
+        outline.OutlineColor = Color.yellow;
     }
 }

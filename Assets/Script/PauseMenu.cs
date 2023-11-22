@@ -40,6 +40,7 @@ void Start()
             pausePanel.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            Player.parado = false;
         }
         else
         {
@@ -48,6 +49,7 @@ void Start()
             pausePanel.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            Player.parado = true;
         }
     }
 

@@ -33,6 +33,7 @@ TagManager:
   - Arma
   - Mae
   - Labirinto
+  - cartaTutorial
   layers:
   - Default
   - TransparentFX

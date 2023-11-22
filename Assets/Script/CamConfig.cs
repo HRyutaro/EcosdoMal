@@ -37,6 +37,7 @@ public class CamConfig : MonoBehaviour
     porta porta;
     portaSemInteracao porta2;
     Carta1 carta;
+    Tutorial tutorial;
     jornal jornal;
     item item;
     itemChao itemChao;
@@ -133,6 +134,14 @@ public class CamConfig : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         carta.togglePegar();
+                    }
+                }
+                else if (outlineObject.CompareTag("cartaTutorial"))
+                {
+                    tutorial = hit.transform.GetComponent<Tutorial>();
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        tutorial.TogglePegar();
                     }
                 }
                 else if (outlineObject.CompareTag("jornal"))

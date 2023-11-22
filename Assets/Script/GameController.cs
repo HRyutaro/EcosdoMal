@@ -74,13 +74,11 @@ public class GameController : MonoBehaviour
         {
             if(isPause == false)
             {
-                Time.timeScale = 0;
                 isPause = true;
             }
             else
             {
                 isPause = false;
-                Time.timeScale = 1;
             }
 
         }
