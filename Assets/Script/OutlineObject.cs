@@ -19,13 +19,13 @@ public class OutlineObject : MonoBehaviour
 
     public void Select()
     {
-        outline.OutlineWidth = 4;
-        outline.OutlineColor = Color.green;
+        outline.OutlineWidth = 10;
+        outline.OutlineColor = Color.blue;
     }
 
     public void Deselect()
     {
-        outline.OutlineWidth = 3;
+        outline.OutlineWidth = 2;
         outline.OutlineColor = Color.yellow;
     }
 }

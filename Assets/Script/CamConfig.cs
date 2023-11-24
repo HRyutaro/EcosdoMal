@@ -290,12 +290,12 @@ public class CamConfig : MonoBehaviour
                     {
                         if (GameController.instance.task == 2)
                         {
-                            if (Pia.giros > 499 && Input.GetKeyDown(KeyCode.E))
+                            if (Pia.giros > 299 && Input.GetKeyDown(KeyCode.E))
                             {
                                 Pia.tirou = true;
                                 outlineObject.Deselect();
                             }
-                            else if (Pia.giros <= 499)
+                            else if (Pia.giros <= 299)
                             {
                                 Pia.giros += 1;
                                 hit.transform.Rotate(new Vector3(0, 1, 0));
@@ -323,12 +323,12 @@ public class CamConfig : MonoBehaviour
                 {
                     if (GameController.instance.task == 2 && Input.GetKey(KeyCode.E))
                     {
-                        if (Pia.giros1 > 499 && Input.GetKeyDown(KeyCode.E))
+                        if (Pia.giros1 > 299 && Input.GetKeyDown(KeyCode.E))
                         {
                             Pia.tirou1 = true;
                             outlineObject.Deselect();
                         }
-                        else if (Pia.giros1 <= 499)
+                        else if (Pia.giros1 <= 299)
                         {
                             Pia.giros1 += 1;
                             hit.transform.Rotate(new Vector3(0, 1, 0));
@@ -393,7 +393,7 @@ public class CamConfig : MonoBehaviour
                 {
                     if (GameController.instance.task == 2 && Input.GetKey(KeyCode.E))
                     {
-                        if (Pia.colocou == true && Pia.girosC <= 499)
+                        if (Pia.colocou == true && Pia.girosC <= 299)
                         {
                             Pia.girosC += 1;
                             hit.transform.Rotate(new Vector3(0, 1, 0));
@@ -405,7 +405,7 @@ public class CamConfig : MonoBehaviour
                 {
                     if (GameController.instance.task == 2 && Input.GetKey(KeyCode.E))
                     {
-                        if (Pia.colocou == true && Pia.girosC1 <= 499)
+                        if (Pia.colocou == true && Pia.girosC1 <= 299)
                         {
                             Pia.girosC1 += 1;
                             hit.transform.Rotate(new Vector3(0, 1, 0));
@@ -448,6 +448,7 @@ public class CamConfig : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.E) && comVassoura == true)
                     {
                         SujeiraControl.sujeiras += 1;
+                        SujeiraControl.instance.tocar();
                         Destroy(outlineObject.gameObject);
                     }
                     else if (Input.GetKeyDown(KeyCode.E) && comVassoura == false)

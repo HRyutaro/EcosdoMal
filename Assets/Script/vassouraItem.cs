@@ -38,4 +38,6 @@ public class vassouraItem : MonoBehaviour
             pegou = true;
         }
     }
+
+
 }

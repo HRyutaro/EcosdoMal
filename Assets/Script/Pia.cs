@@ -49,7 +49,7 @@ public class Pia : MonoBehaviour
         tirar();
 
         colocar();
-        if (girosC >= 500 && girosC1 >= 500)
+        if (girosC >= 300 && girosC1 >= 300)
         {
             consertou = true;
         }

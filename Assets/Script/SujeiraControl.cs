@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class SujeiraControl : MonoBehaviour
 {
+    public static SujeiraControl instance;
     public static int sujeiras;
     public GameObject checklist;
     public AudioSource somElevador;
+    public AudioSource limpou;
     public GameObject criança;
 
     void Start()
     {
+        instance = this;
         sujeiras = 0;
         
     }
@@ -28,5 +31,10 @@ public class SujeiraControl : MonoBehaviour
             checklist.SetActive(true);
             Destroy(gameObject);
         }
+    }
+
+    public void tocar()
+    {
+        limpou.Play();
     }
 }
