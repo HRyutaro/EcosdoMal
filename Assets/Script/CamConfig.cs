@@ -170,11 +170,20 @@ public class CamConfig : MonoBehaviour
                 }
                 else if (outlineObject.CompareTag("Cama"))
                 {
-                    if (Input.GetKeyDown(KeyCode.E) && GameController.instance.task == 4)
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
-                        GameController.instance.task = 1;
-                        SceneManager.LoadScene("Dia2");
+                        if(GameController.instance.task == 4)
+                        {
+                            GameController.instance.task = 1;
+                            SceneManager.LoadScene("Dia2");
+                        }
+                        else
+                        {
+                            GameController.instance.ShowInformacao("'Não posso dormir agora, tenho que conhecer o hotel antes'");
+                        }
+
                     }
+
                 }
                 else if (outlineObject.CompareTag("alavanca"))
                 {
@@ -442,6 +451,7 @@ public class CamConfig : MonoBehaviour
                     {
                         vassoura.pegar();
                     }
+                    
                 }
                 else if (outlineObject.CompareTag("sujeira"))
                 {

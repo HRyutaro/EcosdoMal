@@ -29,13 +29,20 @@ public class vassouraItem : MonoBehaviour
 
     public void pegar()
     {
-        if(pegou == true)
+        if(GameController.instance.task == 4)
         {
-            pegou = false;
+            if(pegou == true)
+            {
+                pegou = false;
+            }
+            else
+            {
+                pegou = true;
+            }
         }
         else
         {
-            pegou = true;
+            GameController.instance.ShowInformacao("Primeiro devo afiar o machado");
         }
     }
 

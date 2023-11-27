@@ -169,7 +169,9 @@ public class Player : MonoBehaviour
 
         Vector3 finalVelocity = forward + strafe + vertical;
 
-        controller.Move(finalVelocity * Time.deltaTime);
+        finalVelocity.Normalize();
+
+        controller.Move(finalVelocity * atualforwardSpeed * Time.deltaTime);
         if (Input.GetKeyDown(KeyCode.LeftShift)&& agachado == false)
         {
             atualforwardSpeed = 2 * forwardSpeed;
