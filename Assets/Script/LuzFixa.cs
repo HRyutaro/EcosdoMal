@@ -13,7 +13,6 @@ public class LuzFixa : MonoBehaviour
     void Start()
     {
         intensidadeOriginal = luz.intensity;
-        StartCoroutine(PiscarLuz());
     }
 
     // Update is called once per frame

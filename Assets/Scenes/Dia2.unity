@@ -2080,7 +2080,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 1f943ffb0f39ea0449fe32b2bcaec41d, type: 3}
     m_FontSize: 59
     m_FontStyle: 0
     m_BestFit: 0
@@ -2636,7 +2636,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 1f943ffb0f39ea0449fe32b2bcaec41d, type: 3}
     m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
@@ -3874,7 +3874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &924356904
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3892,8 +3892,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 856, y: 1121}
+  m_AnchoredPosition: {x: 61, y: -0.000024796}
+  m_SizeDelta: {x: 1217.3696, y: 1441.6646}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &924356905
 MonoBehaviour:
@@ -3915,7 +3915,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ad7753972380f344bb3ab64f30525988, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b113dde384e5a1346b508d3410115267, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8849,6 +8849,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2779721053883840934, guid: 6feba7d1d1473be449a136e7cef5381e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a66a3a52d6ff6db4c87ae830245207dd, type: 2}
+    - target: {fileID: 2779721053913797167, guid: 6feba7d1d1473be449a136e7cef5381e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a66a3a52d6ff6db4c87ae830245207dd, type: 2}
+    - target: {fileID: 2779721054311508307, guid: 6feba7d1d1473be449a136e7cef5381e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a66a3a52d6ff6db4c87ae830245207dd, type: 2}
+    - target: {fileID: 2779721054630444901, guid: 6feba7d1d1473be449a136e7cef5381e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a66a3a52d6ff6db4c87ae830245207dd, type: 2}
     - target: {fileID: 2779721054630444903, guid: 6feba7d1d1473be449a136e7cef5381e, type: 3}
       propertyPath: Carta1Tela
       value: 
@@ -8917,6 +8933,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2779721055207711797, guid: 6feba7d1d1473be449a136e7cef5381e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a66a3a52d6ff6db4c87ae830245207dd, type: 2}
     - target: {fileID: 3466257012747345111, guid: 6feba7d1d1473be449a136e7cef5381e, type: 3}
       propertyPath: m_IsActive
       value: 1

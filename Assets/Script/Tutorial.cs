@@ -9,6 +9,7 @@ public class Tutorial : MonoBehaviour
     bool viuPrimeiro =true;
     public AudioSource som;
 
+
     void Start()
     {
         Player.parado = true;

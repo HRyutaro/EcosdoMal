@@ -10,6 +10,8 @@ public class CaixaDeluz : MonoBehaviour
     public static bool lightout = false;
     public Animator anim;
 
+    public AudioSource audio;
+
     void Start()
     {
 
@@ -34,10 +36,12 @@ public class CaixaDeluz : MonoBehaviour
         if (lightout == true)
         {
             anim.SetBool("ligado", true);
+            audio.Play();
         }
         else if (lightout == false)
         {
             anim.SetBool("ligado", false);
+            audio.Play();
         }
     }
 }

@@ -7503,7 +7503,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 1f943ffb0f39ea0449fe32b2bcaec41d, type: 3}
     m_FontSize: 59
     m_FontStyle: 0
     m_BestFit: 0
@@ -9518,11 +9518,7 @@ MonoBehaviour:
   TextTela: {fileID: 1412394133}
   TextTelaInfo: {fileID: 2078030792}
   tarefas:
-  - "Ler o jornal (na recep\xE7\xE3o)"
-  - Checar os corredores
-  - Checar quarto 237
-  - pegar arma
-  - preciso de uma bebida
+  - PEGUE A GAROTA
   task: 0
   isPause: 0
   Dia: 6
@@ -10370,7 +10366,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 1f943ffb0f39ea0449fe32b2bcaec41d, type: 3}
     m_FontSize: 27
     m_FontStyle: 0
     m_BestFit: 0
