@@ -44,6 +44,8 @@ public class CamConfig : MonoBehaviour
     MachadoItem machadoItem;
     vassouraItem vassoura;
     ArmaChao armachao;
+    portaArmario portaArmario;
+    pilhaDePratos pilha;
 
     void Start()
     {
@@ -227,9 +229,17 @@ public class CamConfig : MonoBehaviour
                 else if (outlineObject.CompareTag("Gas"))
                 {
                     item = hit.transform.GetComponent<item>();
-                    if (Input.GetKeyDown(KeyCode.E) && GameController.instance.task == 2)
+                    if (Input.GetKeyDown(KeyCode.E) && GameController.instance.task == 2 && Player.comItem == false)
                     {
-                        item.togglePegar();
+                        if(Player.comItem == false)
+                        {
+                            item.togglePegar();
+                        }
+                        else
+                        {
+                            GameController.instance.ShowInformacao("Preciso guardar esse primeiro");
+                        }
+
                     }
                     else if(Input.GetKeyDown(KeyCode.E) && GameController.instance.task != 2)
                     {
@@ -293,134 +303,7 @@ public class CamConfig : MonoBehaviour
 
                     }
                 }
-                else if (outlineObject.CompareTag("roscaPia"))
-                {
-                    if (Input.GetKey(KeyCode.E))
-                    {
-                        if (GameController.instance.task == 2)
-                        {
-                            if (Pia.giros > 299 && Input.GetKeyDown(KeyCode.E))
-                            {
-                                Pia.tirou = true;
-                                outlineObject.Deselect();
-                            }
-                            else if (Pia.giros <= 299)
-                            {
-                                Pia.giros += 1;
-                                hit.transform.Rotate(new Vector3(0, 1, 0));
-                                if (!canoRangendo.isPlaying)
-                                {
-                                    canoRangendo.Play();
-                                }
-                            }
-                        }
-                        else
-                        {
-                            GameController.instance.ShowInformacao("Vamos ler o jornal antes de começar as tarefas");
-                        }
-                    }
-                    else
-                    {
-                        if (canoRangendo.isPlaying)
-                        {
-                            canoRangendo.Stop();
-                        }
-                        
-                    }
-                }
-                else if (outlineObject.CompareTag("roscaPia1"))
-                {
-                    if (GameController.instance.task == 2 && Input.GetKey(KeyCode.E))
-                    {
-                        if (Pia.giros1 > 299 && Input.GetKeyDown(KeyCode.E))
-                        {
-                            Pia.tirou1 = true;
-                            outlineObject.Deselect();
-                        }
-                        else if (Pia.giros1 <= 299)
-                        {
-                            Pia.giros1 += 1;
-                            hit.transform.Rotate(new Vector3(0, 1, 0));
-                            if (!canoRangendo.isPlaying)
-                            {
-                                canoRangendo.Play();
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (canoRangendo.isPlaying)
-                        {
-                            canoRangendo.Stop();
-                        }
-                    }
-                }
-                else if (outlineObject.CompareTag("CanoPia"))
-                {
-                    if (GameController.instance.task == 2 && Input.GetKey(KeyCode.E))
-                    {
-                        if (Pia.podeTirar2 == true)
-                        {
-                            Pia.tirou2 = true;
-                            outlineObject.Deselect();
-                        }
-                        else
-                        {
-                            GameController.instance.ShowInformacao("Tire as outras partes primeiro");
-                        }
-                    }
-                    else if(GameController.instance.task != 2 && Input.GetKey(KeyCode.E))
-                    {
-                        GameController.instance.ShowInformacao("Vamos ler o jornal antes de começar as tarefas");
-                    }
-                }
-                else if (outlineObject.CompareTag("localroscaPiaC"))
-                {
-                    if (GameController.instance.task == 2 && Input.GetKeyDown(KeyCode.E))
-                    {
-                        Pia.colocou = true;
-                        outlineObject.Deselect();
-                    }
-                }
-                else if (outlineObject.CompareTag("localroscaPiaC1"))
-                {
-                    if (GameController.instance.task == 2 && Input.GetKeyDown(KeyCode.E))
-                    {
-                        Pia.colocou1 = true;
-                        outlineObject.Deselect();
-                    }
-                }
-                else if (outlineObject.CompareTag("localCanoPiaC"))
-                {
-                    if (GameController.instance.task == 2 && Input.GetKeyDown(KeyCode.E))
-                    {
-                        Pia.colocou2 = true;
-                        outlineObject.Deselect();
-                    }
-                }
-                else if (outlineObject.CompareTag("roscaPiaC"))
-                {
-                    if (GameController.instance.task == 2 && Input.GetKey(KeyCode.E))
-                    {
-                        if (Pia.colocou == true && Pia.girosC <= 299)
-                        {
-                            Pia.girosC += 1;
-                            hit.transform.Rotate(new Vector3(0, 1, 0));
-                        }
-                    }
 
-                }
-                else if (outlineObject.CompareTag("roscaPiaC1"))
-                {
-                    if (GameController.instance.task == 2 && Input.GetKey(KeyCode.E))
-                    {
-                        if (Pia.colocou == true && Pia.girosC1 <= 299)
-                        {
-                            Pia.girosC1 += 1;
-                            hit.transform.Rotate(new Vector3(0, 1, 0));
-                        }
-                    }
-                }
                 else if (outlineObject.CompareTag("Machado"))
                 {
                     machadoItem = hit.transform.GetComponent<MachadoItem>();
@@ -495,8 +378,44 @@ public class CamConfig : MonoBehaviour
                             GameController.instance.ShowInformacao("AcABaR COm EsSAS AluCinAÇõEs");
                         }
                     }
+                }
+                else if (outlineObject.CompareTag("portaArmario"))
+                {
+                    portaArmario = hit.transform.GetComponent<portaArmario>();
+                    {
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            portaArmario.TogglePorta();
+                        }
+                    }
+                }
+                else if (outlineObject.CompareTag("PilhaDePratosChao"))
+                {
+                    pilha = hit.transform.GetComponent<pilhaDePratos>();
+                    {
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            if(Player.comItem == false && GameController.instance.task == 2)
+                            {
+                                pilha.Pegou();
+                            }
+                            
+                        }
+                    }
+                }
+                else if (outlineObject.CompareTag("LocalPilhaDePratos"))
+                {
+                    pilha = hit.transform.GetComponent<pilhaDePratos>();
+                    {
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            if (Player.comItem == false && GameController.instance.task == 2)
+                            {
+                                pilha.colocou();
 
-
+                            }
+                        }
+                    }
                 }
             }
         }

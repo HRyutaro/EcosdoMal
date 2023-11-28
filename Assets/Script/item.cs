@@ -8,6 +8,7 @@ public class item : MonoBehaviour
     bool podePegar = false;
     public GameObject itemMao;
     public GameObject itemLocal;
+    public int taskAtual = 2;
 
     void Start()
     {
@@ -19,7 +20,7 @@ public class item : MonoBehaviour
     {
         if (podePegar == true)
         {
-            if (GameController.instance.task == 2)
+            if (GameController.instance.task == taskAtual)
             {
                 Player.comItem = true;
                 itemLocal.SetActive(true);

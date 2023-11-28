@@ -34,6 +34,9 @@ TagManager:
   - Mae
   - Labirinto
   - cartaTutorial
+  - portaArmario
+  - PilhaDePratosChao
+  - LocalPilhaDePratos
   layers:
   - Default
   - TransparentFX

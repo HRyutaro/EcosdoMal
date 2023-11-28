@@ -4,29 +4,36 @@ using UnityEngine;
 
 public class itemChao : MonoBehaviour
 {
-
+    public int nextTask = 3;
     bool podecolocar = false;
     public GameObject item;
     public GameObject itemMao;
     public GameObject CheckList;
 
-    public static bool comMaleta = false;
+    public int paraTerminar = 1;
+    public static int tasksFeitas;
     void Start()
     {
-        
+        tasksFeitas = 0;
     }
 
 
     void Update()
     {
-        if(podecolocar == true && Input.GetKeyDown(KeyCode.E))
+        if(podecolocar == true)
         {
+            ++tasksFeitas;
+            Debug.Log("feitas" + tasksFeitas);
             item.SetActive(true);
-            CheckList.SetActive(true);
-            GameController.instance.task = 3;
+            itemMao.SetActive(false);
             Player.comItem = false;
             Destroy(gameObject);
-            Destroy(itemMao);
+            if (paraTerminar == tasksFeitas)
+            {
+                Destroy(itemMao);
+                GameController.instance.task = nextTask;
+                CheckList.SetActive(true);
+            }
         }
 
     }
