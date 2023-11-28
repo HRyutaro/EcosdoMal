@@ -70,6 +70,7 @@ public class Player : MonoBehaviour
             comArma = true;
             comMachado = false;
             comVassoura = false;
+            cadernoNaMao = false;
         }
         else
         {

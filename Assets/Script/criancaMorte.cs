@@ -7,7 +7,7 @@ public class criancaMorte : MonoBehaviour
 {
     public GameObject morta;
     public GameObject telaPetra;
-    public MeshRenderer mesh;
+    public GameObject mesh;
     public AudioSource machado;
     public AudioSource grito;
     public GameObject machadoMao;
@@ -35,7 +35,7 @@ public class criancaMorte : MonoBehaviour
         grito.Play();
         yield return new WaitForSeconds(2f);
         telaPetra.SetActive(false);
-        mesh.enabled = false;
+        mesh.SetActive(false);
         morta.SetActive(true);
         Player.comMachado = true;
         Player.cadernoNaMao = false;

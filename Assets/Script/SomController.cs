@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SomController : MonoBehaviour
 {
+    public AudioSource som;
     private bool estadoSom = true;
     [SerializeField] private AudioSource somUm;
     [SerializeField] private AudioSource somDois;
@@ -14,8 +15,10 @@ public class SomController : MonoBehaviour
 
     [SerializeField] private Image muteImage;
 
+
     public void LigarDesligarSom()
     {
+        som.Play();
         estadoSom = !estadoSom;
         somUm.enabled = estadoSom;
         somDois.enabled = estadoSom;

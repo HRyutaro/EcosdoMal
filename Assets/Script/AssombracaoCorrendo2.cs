@@ -45,9 +45,9 @@ public class AssombracaoCorrendo2 : MonoBehaviour
 
         if (other.CompareTag("Player") && GameController.instance.task == 3)
         {
+            som.Play();
             correr = true;
             numeroAsombra += 1;
-            som.Play();
         }
     }
     public void animacao()

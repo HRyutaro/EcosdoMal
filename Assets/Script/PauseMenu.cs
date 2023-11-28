@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pausePanel;
     public string cena;
 
+    public AudioSource som;
      public void SairGame()
     {
         //Mensagem no Unity de saida do jogo
@@ -28,6 +29,7 @@ void Start()
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseScreen();
+
         }   
     } 
 
@@ -60,17 +62,20 @@ void Start()
             pausePanel.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = false;
+        som.Play();
     }
 
     public void AbrirOpcoes()
     {
         painelMenuInicial.SetActive(false);
         painelOpcoes.SetActive(true);
+        som.Play();
     }
     public void FecharOpcoes()
     {
         painelOpcoes.SetActive(false);
         painelMenuInicial.SetActive(true);
+        som.Play();
     }
 
 }

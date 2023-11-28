@@ -53,6 +53,7 @@ public class DialogoControl : MonoBehaviour
         sentences = txt;
         StartCoroutine(TypeSentence());
         passarText.SetActive(true);
+
     }
     IEnumerator TypeSentence()
     {
@@ -84,7 +85,8 @@ public class DialogoControl : MonoBehaviour
                 GameController.instance.isPause = false;
                 podeApertar = false;
                 EnterDialogo.podeSeguir = false;
-                if(GameController.days == 3)
+
+                if (GameController.days == 3)
                 {
                     GameObject cMorte = GameObject.Find("Crianca");
                     criancaMorte cM = cMorte.GetComponent<criancaMorte>();
