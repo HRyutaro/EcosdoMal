@@ -45,7 +45,6 @@ public class CamConfig : MonoBehaviour
     vassouraItem vassoura;
     ArmaChao armachao;
     portaArmario portaArmario;
-    pilhaDePratos pilha;
 
     void Start()
     {
@@ -386,34 +385,6 @@ public class CamConfig : MonoBehaviour
                         if (Input.GetKeyDown(KeyCode.E))
                         {
                             portaArmario.TogglePorta();
-                        }
-                    }
-                }
-                else if (outlineObject.CompareTag("PilhaDePratosChao"))
-                {
-                    pilha = hit.transform.GetComponent<pilhaDePratos>();
-                    {
-                        if (Input.GetKeyDown(KeyCode.E))
-                        {
-                            if(Player.comItem == false && GameController.instance.task == 2)
-                            {
-                                pilha.Pegou();
-                            }
-                            
-                        }
-                    }
-                }
-                else if (outlineObject.CompareTag("LocalPilhaDePratos"))
-                {
-                    pilha = hit.transform.GetComponent<pilhaDePratos>();
-                    {
-                        if (Input.GetKeyDown(KeyCode.E))
-                        {
-                            if (Player.comItem == false && GameController.instance.task == 2)
-                            {
-                                pilha.colocou();
-
-                            }
                         }
                     }
                 }

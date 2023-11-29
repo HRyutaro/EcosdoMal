@@ -20,7 +20,7 @@ public class MachadoDia55 : MonoBehaviour
         if(pegou == true)
         {
             machadoMao.SetActive(true);
-            Player.comMachado = true;
+            Player.comArma = true;
             GameController.instance.task = 3;
             Destroy(gameObject);
         }

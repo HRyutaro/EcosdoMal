@@ -93,7 +93,7 @@ public class GameController : MonoBehaviour
     IEnumerator habilitarLegenda()
     {
         TextTelaInfo.enabled = true;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         TextTelaInfo.enabled = false;
         TextTelaInfo.text = "";
     }
