@@ -31,6 +31,11 @@ void Start()
             PauseScreen();
 
         }   
+        else
+        {
+            Time.timeScale = 1f;
+        }
+        
     } 
 
     void PauseScreen()
@@ -62,12 +67,12 @@ void Start()
             pausePanel.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = false;
-        som.Play();
+            som.Play();
     }
 
     public void AbrirOpcoes()
     {
-        painelMenuInicial.SetActive(false);
+        //painelMenuInicial.SetActive(false);
         painelOpcoes.SetActive(true);
         som.Play();
     }
