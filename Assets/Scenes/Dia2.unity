@@ -2187,7 +2187,7 @@ MonoBehaviour:
   vassoura: {fileID: 451712279}
   machado: {fileID: 1960131260}
   Arma: {fileID: 1311207420}
-  modoDeus: 0
+  modoDeus: 1
 --- !u!143 &663437269
 CharacterController:
   m_ObjectHideFlags: 0

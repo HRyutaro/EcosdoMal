@@ -10026,7 +10026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1785003541
 Transform:
   m_ObjectHideFlags: 0
@@ -11107,7 +11107,7 @@ MonoBehaviour:
   vassoura: {fileID: 137728689}
   machado: {fileID: 2848929321081017484}
   Arma: {fileID: 1231786060}
-  modoDeus: 0
+  modoDeus: 1
 --- !u!143 &1958742770
 CharacterController:
   m_ObjectHideFlags: 0

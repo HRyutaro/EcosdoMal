@@ -8135,7 +8135,7 @@ MonoBehaviour:
   vassoura: {fileID: 858645185}
   machado: {fileID: 116301743}
   Arma: {fileID: 1737860977}
-  modoDeus: 0
+  modoDeus: 1
 --- !u!143 &1488777043
 CharacterController:
   m_ObjectHideFlags: 0
@@ -10012,7 +10012,7 @@ MonoBehaviour:
   TextTelaInfo: {fileID: 1900029777}
   tarefas:
   - Verificar quadro de luz
-  - pERGar MaCHaDo
+  - pERGar ReVOLveR
   - PrOcuRar E ACaBar Com EsSa CoISa
   - EsSa PIRRaLHa CAdE eLa!!
   task: 0
